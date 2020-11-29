@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/gameFX.iml" filepath="$PROJECT_DIR$/gameFX.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ColorSwitch.iml" filepath="$PROJECT_DIR$/ColorSwitch.iml" />
     </modules>
   </component>
 </project>

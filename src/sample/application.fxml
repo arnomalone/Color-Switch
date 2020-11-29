@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.C_application">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="400.0" pickOnBounds="true">
+         <image>
+            <Image url="@resources/background.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="131.0" fitWidth="190.0" layoutX="220.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/cs_logo_text_dk.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="quitButton" alignment="CENTER" layoutX="110.0" layoutY="512.0" mnemonicParsing="false" onAction="#press_quit" prefHeight="66.0" prefWidth="132.0" style="-fx-background-color: transparent;" text="Quit" textAlignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="52.0" fitWidth="112.0" pickOnBounds="true">
+               <image>
+                  <Image url="@resources/quit_text.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="creditsButton" ellipsisString="" layoutX="110.0" layoutY="447.0" mnemonicParsing="false" onAction="#press_credits" prefHeight="58.0" prefWidth="188.0" style="-fx-background-color: transparent;" text="Credits">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="190.0" pickOnBounds="true">
+               <image>
+                  <Image url="@resources/credits_text.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="scoreButton" alignment="CENTER" ellipsisString="" layoutX="115.0" layoutY="381.0" mnemonicParsing="false" onAction="#press_scores" prefHeight="58.0" prefWidth="160.0" style="-fx-background-color: transparent;" text="Scores" textAlignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="180.0" pickOnBounds="true">
+               <image>
+                  <Image url="@resources/scores_text.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="playButton" layoutX="-16.0" layoutY="169.0" mnemonicParsing="false" onAction="#press_play" prefHeight="212.0" prefWidth="226.0" style="-fx-background-color: transparent;" text="Play" textFill="#060000">
+         <graphic>
+            <ImageView fitHeight="198.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/play_button_transparent.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
