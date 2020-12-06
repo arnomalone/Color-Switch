@@ -5,16 +5,16 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.C_credits">
+<AnchorPane prefHeight="800.0" prefWidth="500.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.C_credits">
     <children>
-      <ImageView fitHeight="600.0" fitWidth="400.0" pickOnBounds="true">
+      <ImageView fitHeight="800.0" fitWidth="500.0" pickOnBounds="true">
          <image>
             <Image url="@resources/color_switchcredits.png" />
          </image>
       </ImageView>
-        <Button fx:id="backButton" alignment="CENTER" ellipsisString="" layoutX="144.0" layoutY="366.0" mnemonicParsing="false" onAction="#press_back" prefHeight="52.0" prefWidth="82.0" style="-fx-background-color: transparent;" text="Back">
+        <Button fx:id="backButton" alignment="CENTER" ellipsisString="" layoutX="178.0" layoutY="489.0" mnemonicParsing="false" onAction="#press_back" prefHeight="74.0" prefWidth="143.0" style="-fx-background-color: transparent;" text="Back">
          <graphic>
-                <ImageView fitHeight="44.0" fitWidth="88.0" pickOnBounds="true">
+                <ImageView fitHeight="58.0" fitWidth="124.0" pickOnBounds="true">
                     <image>
                         <Image url="@resources/back_text.png" />
                     </image>

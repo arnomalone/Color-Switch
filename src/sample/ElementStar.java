@@ -8,10 +8,10 @@ public class ElementStar extends Elements {
     ElementStar(Double r, Image ip){
         super(ip);
         radius = r;
-        this.setFitHeight(20);
-        this.setFitWidth(20);
-        setTranslateX(200-(this.getFitWidth()/2));
-        setTranslateY(-10-(this.getFitHeight()/2));
+        this.setHeight(30);
+        this.setWidth(30);
+        setTranslateX(250-(this.getWidth()/2));
+        setTranslateY(-10-(this.getHeight()/2));
     }
 
     public Double getRadius() {

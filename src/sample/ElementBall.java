@@ -3,15 +3,16 @@ package sample;
 
 import javafx.animation.TranslateTransition;
 import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
 import javafx.util.Duration;
 
 public class ElementBall extends Elements {
     public ElementBall(int x, int y, Image ip){
         super(ip);
-        this.setFitHeight(15);
-        this.setFitWidth(15);
-        setTranslateX(200-(this.getFitWidth()/2));
-        setTranslateY(500-(this.getFitHeight()/2));
+        this.setHeight(20);
+        this.setWidth(20);
+        setTranslateX(250-(this.getWidth()/2));
+        setTranslateY(500-(this.getHeight()/2));
     }
     void moveUp() {
         TranslateTransition trans = new TranslateTransition();
@@ -23,14 +24,14 @@ public class ElementBall extends Elements {
     }
     void moveDown() {
         setTranslateY(getTranslateY()+1.2);
-        if(getTranslateY()>600){
-            setTranslateY(600);
+        if(getTranslateY()>800){
+            setTranslateY(800);
         }
     }
     void setColor(Image ip){
-        this.setImage(ip);
+        this.setFill(new ImagePattern(ip));
     }
-    Image getColor(){
-        return this.getImage();
-    }
+//    Image getColor(){
+//        return this.getImage();
+//    }
 }
