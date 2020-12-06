@@ -2,19 +2,22 @@ package sample;
 
 import javafx.animation.Interpolator;
 import javafx.animation.RotateTransition;
-import javafx.scene.image.Image;
-import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+
+import java.io.FileNotFoundException;
 
 
 public abstract class Elements extends Rectangle {
     RotateTransition rotateTransition;
-    Elements(Image ip){
+    String image_path0;
+
+    Elements(){
         super();
-        this.setFill(new ImagePattern(ip));
         startRotate();
     }
+
+    public abstract void setImage() throws FileNotFoundException;
 
     private void startRotate(){
         rotateTransition = new RotateTransition();

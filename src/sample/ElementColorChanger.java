@@ -1,13 +1,18 @@
 package sample;
 
 import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class ElementColorChanger extends Elements {
     private boolean hit = false;
     private int nextColor;
-    Obstacle obstacle;
-    public ElementColorChanger(Image ip) {
-        super(ip);
+    public ElementColorChanger() throws FileNotFoundException {
+        super();
+        image_path0 = "src/sample/resources/color_changer_trans.png";
+        setImage();
         nextColor = 0;
         this.setHeight(30);
         this.setWidth(30);
@@ -29,5 +34,10 @@ public class ElementColorChanger extends Elements {
 
     public void setHit(boolean hit) {
         this.hit = hit;
+    }
+
+    @Override
+    public void setImage() throws FileNotFoundException {
+        this.setFill(new ImagePattern(new Image(new FileInputStream(image_path0))));
     }
 }

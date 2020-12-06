@@ -1,44 +1,18 @@
 package sample;
 
 import javafx.animation.*;
-import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Point2D;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.ImagePattern;
-import javafx.scene.shape.Ellipse;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
-import javafx.stage.Stage;
 import javafx.animation.TranslateTransition;
-import javafx.util.Duration;
-import javafx.scene.control.Label;
-
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
-
-import static javafx.fxml.FXMLLoader.load;
-
 
 public class C_play {
     @FXML
@@ -46,81 +20,47 @@ public class C_play {
     @FXML
     private AnchorPane anchorPane;
     @FXML
-    private ElementBall ball;
-    @FXML
     private Label label;
-    int count = 0;
+    static int count;
     private double time = 0;
     boolean notStart = true;
     Random random = new Random();
+    private ElementBall ball;
 
     Obstacle obstacle1, obstacle2, obstacle3;
     TranslateTransition trans;
-    Image purpleBallImage, yellowBallImage;
-    Image redBallImage, blueBallImage;
-    List<Image> imageList;
-    Image circleImage0, circleImage1, circleImage2, circleImage3;
-    Image squareImage0, squareImage1, squareImage2, squareImage3;
-    Image lineImage0, lineImage1, lineImage2, lineImage3;
-    Image starImage, colorChangerImage;
-
-    int lastColor = 2;
-    private Stage GameOverStage;
+    static int lastColor = 2;
 
     @FXML
     void initialize() throws FileNotFoundException {
 
+        count = 0;
 
-        FileInputStream circle0 = new FileInputStream("src/sample/resources/circle-0.png");
-        FileInputStream circle1 = new FileInputStream("src/sample/resources/circle-1.png");
-        FileInputStream circle2 = new FileInputStream("src/sample/resources/circle-2.png");
-        FileInputStream circle3 = new FileInputStream("src/sample/resources/circle-3.png");
-        FileInputStream square0 = new FileInputStream("src/sample/resources/square-0.png");
-        FileInputStream square1 = new FileInputStream("src/sample/resources/square-1.png");
-        FileInputStream square2 = new FileInputStream("src/sample/resources/square-2.png");
-        FileInputStream square3 = new FileInputStream("src/sample/resources/square-3.png");
-        FileInputStream line0 = new FileInputStream("src/sample/resources/line-0.png");
-        FileInputStream line1 = new FileInputStream("src/sample/resources/line-1.png");
-        FileInputStream line2 = new FileInputStream("src/sample/resources/line-2.png");
-        FileInputStream line3 = new FileInputStream("src/sample/resources/line-3.png");
-        FileInputStream star = new FileInputStream("src/sample/resources/star_tran.png");
-        FileInputStream colorChanger_img = new FileInputStream("src/sample/resources/color_changer_trans.png");
-        FileInputStream purpleBall_img = new FileInputStream("src/sample/resources/purple_ball.png");
-        FileInputStream yellowBall_img = new FileInputStream("src/sample/resources/yellow_ball.png");
-        FileInputStream redBall_img = new FileInputStream("src/sample/resources/red_ball.png");
-        FileInputStream blueBall_img = new FileInputStream("src/sample/resources/blue_ball.png");
+        anchorPane.setMinHeight(800);
+        anchorPane.setMaxHeight(800);
 
-        purpleBallImage = new Image(purpleBall_img);
-        yellowBallImage = new Image(yellowBall_img);
-        redBallImage = new Image(redBall_img);
-        blueBallImage = new Image(blueBall_img);
-        imageList = Arrays.asList(purpleBallImage, yellowBallImage, redBallImage, blueBallImage);
+        obstacle1 = new ObstacleCircle();
+        obstacle2 = new ObstacleSquare();
+        obstacle3 = new ObstacleLines();
 
-        starImage = new Image(star); colorChangerImage = new Image(colorChanger_img);
-        circleImage0 = new Image(circle0); circleImage1 = new Image(circle1);
-        circleImage2 = new Image(circle2); circleImage3 = new Image(circle3);
-        squareImage0 = new Image(square0); squareImage1 = new Image(square1);
-        squareImage2 = new Image(square2); squareImage3 = new Image(square3);
-        lineImage0 = new Image(line0); lineImage1 = new Image(line1);
-        lineImage2 = new Image(line2); lineImage3 = new Image(line3);
-
-        ball = new ElementBall(250, 500, yellowBallImage);
-        obstacle1 = new ObstacleCircle(circleImage0, circleImage1, circleImage2, circleImage3, colorChangerImage, starImage);
-        obstacle2 = new ObstacleSquare(squareImage0, squareImage1, squareImage2, squareImage3, colorChangerImage, starImage);
-        obstacle3 = new ObstacleLines(lineImage0, lineImage1, lineImage2, lineImage3, colorChangerImage, starImage);
+        ball = new ElementBall(200, 500);
+        ball.setColor(obstacle1.colorChanger.getNextColor());
 
         obstacle1.colorChanger.setVisible(false);
+        obstacle1.setTranslateY(400-obstacle1.getHeight());
         obstacle2.setTranslateY(obstacle1.getTranslateY()-450);
-        obstacle2.colorChanger.setTranslateY(obstacle2.getTranslateY()+300);
-        obstacle2.star.setTranslateY(obstacle2.getTranslateY()+(obstacle2.getHeight()/2)-(obstacle2.star.getRadius()/2));
         obstacle3.setTranslateY(obstacle2.getTranslateY()-450);
+        obstacle1.colorChanger.setTranslateY(obstacle1.getTranslateY()+300);
+        obstacle2.colorChanger.setTranslateY(obstacle2.getTranslateY()+300);
         obstacle3.colorChanger.setTranslateY(obstacle3.getTranslateY()+300);
+        obstacle1.star.setTranslateY(obstacle1.getTranslateY()+(obstacle1.getHeight()/2)-(obstacle1.star.getRadius()/2));
+        obstacle2.star.setTranslateY(obstacle2.getTranslateY()+(obstacle2.getHeight()/2)-(obstacle2.star.getRadius()/2));
         obstacle3.star.setTranslateY(obstacle3.getTranslateY()+(obstacle3.getHeight()/2)-(obstacle3.star.getRadius()/2));
+
         anchorPane.getChildren().addAll(obstacle1, obstacle2, obstacle3, ball);
         anchorPane.getChildren().addAll(obstacle1.colorChanger, obstacle2.colorChanger, obstacle3.colorChanger);
         anchorPane.getChildren().addAll(obstacle1.star, obstacle2.star, obstacle3.star);
-        anchorPane.setMinHeight(800);
-        anchorPane.setMaxHeight(800);
+
     }
 
     AnimationTimer animationTimer = new AnimationTimer() {
@@ -138,17 +78,59 @@ public class C_play {
                 }
             }
 
-
-            checkPositions(obstacle1);
-            checkPositions(obstacle2);
-            checkPositions(obstacle3);
-//            moveObstacles();
+            try {
+                moveObstacles();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
 
             if (time > 4) {
                 time = 0;
             }
         }
     };
+
+    public void moveObstacles() throws FileNotFoundException {
+
+        if(obstacle1.getTranslateY() >= 1000){
+            double yDist = obstacle1.getTranslateY();
+            anchorPane.getChildren().removeAll(obstacle1.colorChanger, obstacle1.star, obstacle1);
+            int num = random.nextInt(4);
+            if(num == 0) obstacle1 = new ObstacleCircle();
+            if(num == 1) obstacle1 = new ObstacleSquare();
+            if(num == 2) obstacle1 = new ObstacleLines();
+            if(num == 3) obstacle1 = new ObstacleTriangle();
+            obstacle1.setTranslateY(yDist);
+            anchorPane.getChildren().addAll(obstacle1, obstacle1.star, obstacle1.colorChanger);
+        }
+        if(obstacle2.getTranslateY() >= 1000){
+            double yDist = obstacle2.getTranslateY();
+            anchorPane.getChildren().removeAll(obstacle2.colorChanger, obstacle2.star, obstacle2);
+            int num = random.nextInt(4);
+            if(num == 0) obstacle2 = new ObstacleCircle();
+            if(num == 1) obstacle2 = new ObstacleSquare();
+            if(num == 2) obstacle2 = new ObstacleLines();
+            if(num == 3) obstacle2 = new ObstacleTriangle();
+            obstacle2.setTranslateY(yDist);
+            anchorPane.getChildren().addAll(obstacle2, obstacle2.star, obstacle2.colorChanger);
+        }
+        if(obstacle3.getTranslateY() >= 1000){
+            double yDist = obstacle3.getTranslateY();
+            anchorPane.getChildren().removeAll(obstacle3.colorChanger, obstacle3.star, obstacle3);
+            int num = random.nextInt(4);
+            if(num == 0) obstacle3 = new ObstacleCircle();
+            if(num == 1) obstacle3 = new ObstacleSquare();
+            if(num == 2) obstacle3 = new ObstacleLines();
+            if(num == 3) obstacle3 = new ObstacleTriangle();
+            obstacle3.setTranslateY(yDist);
+            anchorPane.getChildren().addAll(obstacle3, obstacle3.star, obstacle3.colorChanger);
+        }
+
+        checkPositions(obstacle1);
+        checkPositions(obstacle2);
+        checkPositions(obstacle3);
+    }
+
 
     public boolean isCollision(Elements ball){
 
@@ -159,19 +141,11 @@ public class C_play {
         if(value1) return true;
 
         boolean value2 = obstacle2.isCollision(ball);
-        if(value2) return true;
-
-        return false;
+        return value2;
     }
 
-    public void moveObstacles() {
-        checkPositions(obstacle1);
-        checkPositions(obstacle2);
-        checkPositions(obstacle3);
-    }
 
-    public void checkPositions(Obstacle obstacle)
-    {
+    public void checkPositions(Obstacle obstacle) throws FileNotFoundException {
         ElementStar star = obstacle.star;
         ElementColorChanger colorChanger = obstacle.colorChanger;
         if(obstacle.getTranslateY()>=1000)
@@ -179,12 +153,18 @@ public class C_play {
             int num = colorChanger.getNextColor();
             obstacle.switchColor(num);
 
-            if(obstacle.getTranslateX()!=250-(obstacle.getWidth()/2)){
-                int num1 = random.nextInt(2);
+            int num1 = random.nextInt(2);
+            if(obstacle.type == 3){
                 if(num1==0)
-                    obstacle.setTranslateX(280-(obstacle.getWidth()/3));
+                    obstacle.setTranslateX(290-(obstacle.getWidth()/3));
                 else
-                    obstacle.setTranslateX(170-(obstacle.getWidth()/3));
+                    obstacle.setTranslateX(150-(obstacle.getWidth()/3));
+                if(num1 != 0)
+                    obstacle.rotateTransition.setRate(-1);
+            }
+            else{
+                if(num1 == 0)
+                    obstacle.rotateTransition.setRate(-1);
             }
             obstacle.setTranslateY(-200-obstacle.getHeight());
             colorChanger.setTranslateY(obstacle.getTranslateY()+300);
@@ -195,18 +175,21 @@ public class C_play {
             star.setVisible(true);
             star.hit=false;
         }
-        if (star.isVisible() && !star.hit && (ball.getBoundsInParent().intersects(star.getBoundsInParent()) || (ball.getTranslateY() < star.getTranslateY())))
+        if (star.isVisible() && !star.hit && (ball.getBoundsInParent().intersects(star.getBoundsInParent())
+                || (ball.getTranslateY() < star.getTranslateY())))
         {
             star.hit=true;
             star.setVisible(false);
             count++;
             label.setText(Integer.toString(count));
         }
-        if (colorChanger.isVisible() && !colorChanger.isHit() && (ball.getBoundsInParent().intersects(colorChanger.getBoundsInParent()) || (ball.getTranslateY() < colorChanger.getTranslateY())))
+        if (colorChanger.isVisible() && !colorChanger.isHit()
+                && (ball.getBoundsInParent().intersects(colorChanger.getBoundsInParent())
+                || (ball.getTranslateY() < colorChanger.getTranslateY())))
         {
             colorChanger.setHit(true);
             colorChanger.setVisible(false);
-            ball.setColor(imageList.get(colorChanger.getNextColor()));
+            ball.setColor(colorChanger.getNextColor());
             int num2 = random.nextInt(4);
             while(num2==lastColor){
                 num2 = random.nextInt(4);
@@ -257,25 +240,14 @@ public class C_play {
     }
 
     public void gameOverMenu() throws IOException {
-//        Parent root = FXMLLoader.load(getClass().getResource("pause.fxml"));
-//        Button useless = new Button();
-//        anchorPane.getChildren().add(useless);
-//        Scene scene = useless.getScene();
-//        StackPane stackPane = (StackPane) scene.getRoot();
-//        stackPane.getChildren().add(root);
-//        stackPane.getChildren().remove(anchorPane);
-//        anchorPane = (AnchorPane) FXMLLoader.load("game_over.fxml");
-//        anchorPane.getChildren().setAll(FXMLLoader.load(toString("game_over.fxml")));
-//        GameOverStage = new Stage();
-//        GameOverStage.setScene(load(getClass().getResource("game_over.fxml")));
-//        GameOverStage.show();
+        animationTimer.stop();
+        Scene HomePage = FXMLLoader.load(getClass().getResource("game_over.fxml"));
+        Main.gameStage.setScene(HomePage);
     }
 
     public void press_pause(ActionEvent event) throws IOException {
-        Parent root = load(getClass().getResource("pause.fxml"));
-        Scene scene = pauseButton.getScene();
-        StackPane stackPane = (StackPane) scene.getRoot();
-        stackPane.getChildren().add(root);
-        stackPane.getChildren().remove(anchorPane);
+        animationTimer.stop();
+        Scene HomePage = FXMLLoader.load(getClass().getResource("pause.fxml"));
+        Main.gameStage.setScene(HomePage);
     }
 }

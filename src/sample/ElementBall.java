@@ -6,9 +6,18 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.util.Duration;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 public class ElementBall extends Elements {
-    public ElementBall(int x, int y, Image ip){
-        super(ip);
+    String image_path1, image_path2, image_path3;
+    public ElementBall(int x, int y) throws FileNotFoundException {
+        super();
+        image_path0 = "src/sample/resources/purple_ball.png";
+        image_path1 = "src/sample/resources/yellow_ball.png";
+        image_path2 = "src/sample/resources/red_ball.png";
+        image_path3 = "src/sample/resources/blue_ball.png";
+        this.setImage();
         this.setHeight(20);
         this.setWidth(20);
         setTranslateX(250-(this.getWidth()/2));
@@ -28,10 +37,19 @@ public class ElementBall extends Elements {
             setTranslateY(800);
         }
     }
-    void setColor(Image ip){
-        this.setFill(new ImagePattern(ip));
+    void setColor(int num) throws FileNotFoundException {
+        if(num == 0)
+            this.setFill(new ImagePattern(new Image(new FileInputStream(image_path0))));
+        if(num == 1)
+            this.setFill(new ImagePattern(new Image(new FileInputStream(image_path1))));
+        if(num == 2)
+            this.setFill(new ImagePattern(new Image(new FileInputStream(image_path2))));
+        if(num == 3)
+            this.setFill(new ImagePattern(new Image(new FileInputStream(image_path3))));
     }
-//    Image getColor(){
-//        return this.getImage();
-//    }
+
+    @Override
+    public void setImage() throws FileNotFoundException {
+        this.setFill(new ImagePattern(new Image(new FileInputStream(image_path1))));
+    }
 }

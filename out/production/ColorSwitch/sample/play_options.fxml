@@ -1,42 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Scene?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="800.0" prefWidth="500.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.C_play_options">
-    <children>
-        <ImageView fitHeight="800.0" fitWidth="500.0" layoutX="-1.0" layoutY="-2.0" pickOnBounds="true">
-            <image>
-                <Image url="@resources/background.png" />
-            </image>
-        </ImageView>
-        <Button fx:id="mainMenuButton" ellipsisString="" layoutX="133.0" layoutY="641.0" mnemonicParsing="false" onAction="#press_back" prefHeight="71.0" prefWidth="231.0" style="-fx-background-color: transparent; -fx-alignment: center;">
-            <graphic>
-                <ImageView accessibleRole="BUTTON" fitHeight="61.0" fitWidth="132.0" pickOnBounds="true">
-                    <image>
-                        <Image url="@resources/back_text.png" />
-                    </image>
-                </ImageView>
-            </graphic>
-        </Button>
-        <Button fx:id="newGame" layoutX="139.0" layoutY="347.0" mnemonicParsing="false" onAction="#press_new_game" prefHeight="71.0" prefWidth="210.0" style="-fx-background-color: transparent;" text="Resume">
-            <graphic>
-                <ImageView accessibleRole="BUTTON" fitHeight="61.0" fitWidth="194.0" pickOnBounds="true">
-                    <image>
-                        <Image url="@resources/new_game_text.png" />
-                    </image>
-                </ImageView>
-            </graphic></Button>
-        <Button fx:id="loadGameButton" layoutX="138.0" layoutY="493.0" mnemonicParsing="false" onAction="#press_load_game" prefHeight="71.0" prefWidth="210.0" style="-fx-background-color: transparent;" text="Restart">
-            <graphic>
-                <ImageView accessibleRole="BUTTON" fitHeight="61.0" fitWidth="195.0" pickOnBounds="true">
-                    <image>
-                        <Image url="@resources/load_game_text.png" />
-                    </image>
-                </ImageView>
-            </graphic>
-        </Button>
-    </children>
-</AnchorPane>
+
+<Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.C_play_options">
+   <root>
+      <AnchorPane prefHeight="800.0" prefWidth="500.0" style="-fx-background-color: black;">
+          <children>
+              <ImageView fitHeight="800.0" fitWidth="500.0" layoutX="-1.0" layoutY="-2.0" pickOnBounds="true">
+                  <image>
+                      <Image url="@resources/background.png" />
+                  </image>
+              </ImageView>
+              <Button fx:id="mainMenuButton" ellipsisString="" layoutX="133.0" layoutY="641.0" mnemonicParsing="false" onAction="#press_back" prefHeight="71.0" prefWidth="231.0" style="-fx-background-color: transparent; -fx-alignment: center;">
+                  <graphic>
+                      <ImageView accessibleRole="BUTTON" fitHeight="61.0" fitWidth="132.0" pickOnBounds="true">
+                          <image>
+                              <Image url="@resources/back_text.png" />
+                          </image>
+                      </ImageView>
+                  </graphic>
+              </Button>
+              <Button fx:id="newGame" layoutX="139.0" layoutY="347.0" mnemonicParsing="false" onAction="#press_new_game" prefHeight="71.0" prefWidth="210.0" style="-fx-background-color: transparent;" text="Resume">
+                  <graphic>
+                      <ImageView accessibleRole="BUTTON" fitHeight="61.0" fitWidth="194.0" pickOnBounds="true">
+                          <image>
+                              <Image url="@resources/new_game_text.png" />
+                          </image>
+                      </ImageView>
+                  </graphic>
+            </Button>
+              <Button fx:id="loadGameButton" layoutX="138.0" layoutY="493.0" mnemonicParsing="false" onAction="#press_load_game" prefHeight="71.0" prefWidth="210.0" style="-fx-background-color: transparent;" text="Restart">
+                  <graphic>
+                      <ImageView accessibleRole="BUTTON" fitHeight="61.0" fitWidth="195.0" pickOnBounds="true">
+                          <image>
+                              <Image url="@resources/load_game_text.png" />
+                          </image>
+                      </ImageView>
+                  </graphic>
+              </Button>
+          </children>
+      </AnchorPane>
+   </root>
+</Scene>

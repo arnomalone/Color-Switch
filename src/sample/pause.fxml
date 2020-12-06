@@ -1,42 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Scene?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="800.0" prefWidth="500.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.C_pause">
-   <children>
-      <ImageView fitHeight="800.0" fitWidth="500.0" pickOnBounds="true">
-         <image>
-            <Image url="@resources/background.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="resumeButton" layoutX="134.0" layoutY="460.0" mnemonicParsing="false" onAction="#press_resume" prefHeight="71.0" prefWidth="210.0" style="-fx-background-color: transparent;" text="Resume">
-         <graphic>
-            <ImageView accessibleRole="BUTTON" fitHeight="61.0" fitWidth="194.0" pickOnBounds="true">
+<Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.C_pause">
+   <root>
+      <AnchorPane fx:id="anchorPane" prefHeight="800.0" prefWidth="500.0" style="-fx-background-color: black;">
+         <children>
+            <ImageView fitHeight="800.0" fitWidth="500.0" pickOnBounds="true">
                <image>
-                  <Image url="@resources/resume_test.png" />
+                  <Image url="@resources/background.png" />
                </image>
             </ImageView>
-         </graphic></Button>
-      <Button fx:id="mainMenuButton" ellipsisString="" layoutX="124.0" layoutY="664.0" mnemonicParsing="false" onAction="#press_main_menu" prefHeight="71.0" prefWidth="231.0" style="-fx-background-color: transparent;" text="MainMenu">
-         <graphic>
-            <ImageView accessibleRole="BUTTON" fitHeight="61.0" fitWidth="232.0" pickOnBounds="true">
-               <image>
-                  <Image url="@resources/main_menu_text.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button fx:id="restartButton" layoutX="135.0" layoutY="560.0" mnemonicParsing="false" onAction="#press_restart" prefHeight="71.0" prefWidth="210.0" style="-fx-background-color: transparent;" text="Restart">
-         <graphic>
-            <ImageView accessibleRole="BUTTON" fitHeight="61.0" fitWidth="195.0" pickOnBounds="true">
-               <image>
-                  <Image url="@resources/restart_text.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-   </children>
-</AnchorPane>
+            <Button fx:id="resumeButton" layoutX="134.0" layoutY="460.0" mnemonicParsing="false" onAction="#press_resume" prefHeight="71.0" prefWidth="210.0" style="-fx-background-color: transparent;" text="Resume">
+               <graphic>
+                  <ImageView accessibleRole="BUTTON" fitHeight="61.0" fitWidth="194.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@resources/resume_test.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="mainMenuButton" ellipsisString="" layoutX="124.0" layoutY="664.0" mnemonicParsing="false" onAction="#press_main_menu" prefHeight="71.0" prefWidth="231.0" style="-fx-background-color: transparent;" text="MainMenu">
+               <graphic>
+                  <ImageView accessibleRole="BUTTON" fitHeight="61.0" fitWidth="232.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@resources/main_menu_text.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="restartButton" layoutX="135.0" layoutY="560.0" mnemonicParsing="false" onAction="#press_restart" prefHeight="71.0" prefWidth="210.0" style="-fx-background-color: transparent;" text="Restart">
+               <graphic>
+                  <ImageView accessibleRole="BUTTON" fitHeight="61.0" fitWidth="195.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@resources/restart_text.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label fx:id="scoreLabel" layoutX="300.0" layoutY="320.0" prefHeight="80.0" prefWidth="140.0" style="-fx-font-size: 54; -fx-text-fill: white;" text="0" />
+            <Label fx:id="starLabel" layoutX="80.0" layoutY="140.0" prefHeight="80.0" prefWidth="140.0" style="-fx-font-size: 54; -fx-text-fill: white;" text="0" />
+            <Label fx:id="theLabel" ellipsisString="" layoutX="100.0" layoutY="320.0" style="-fx-alignment: center; -fx-font-size: 54; -fx-text-fill: white;" text="SCORE:" />
+         </children>
+      </AnchorPane>
+   </root>
+</Scene>
