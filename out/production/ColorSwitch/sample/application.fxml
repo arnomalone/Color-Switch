@@ -57,11 +57,6 @@
                   </ImageView>
                </graphic>
             </Button>
-            <ImageView fitHeight="45.0" fitWidth="42.0" layoutX="26.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@resources/star_tran.png" />
-               </image>
-            </ImageView>
             <Label fx:id="totalStarLabel" layoutX="84.0" layoutY="109.0" prefHeight="82.0" prefWidth="130.0" style="-fx-font-size: 54; -fx-text-fill: white;" text="0" />
          </children>
       </AnchorPane>

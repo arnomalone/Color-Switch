@@ -3,21 +3,16 @@ package sample;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.animation.TranslateTransition;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Random;
-
-import static javafx.fxml.FXMLLoader.load;
-
 
 public class C_play {
     @FXML
@@ -82,7 +77,6 @@ public class C_play {
                     e.printStackTrace();
                 }
             }
-//            isCollision(ball);
 
             try {
                 moveObstacles();
@@ -246,18 +240,13 @@ public class C_play {
     }
 
     public void gameOverMenu() throws IOException {
-
         animationTimer.stop();
         Scene HomePage = FXMLLoader.load(getClass().getResource("game_over.fxml"));
         Main.gameStage.setScene(HomePage);
     }
 
     public void press_pause(ActionEvent event) throws IOException {
-//        Parent root = load(getClass().getResource("pause.fxml"));
-//        Scene scene = pauseButton.getScene();
-//        StackPane stackPane = (StackPane) scene.getRoot();
-//        stackPane.getChildren().add(root);
-//        stackPane.getChildren().remove(anchorPane);
+        animationTimer.stop();
         Scene HomePage = FXMLLoader.load(getClass().getResource("pause.fxml"));
         Main.gameStage.setScene(HomePage);
     }
