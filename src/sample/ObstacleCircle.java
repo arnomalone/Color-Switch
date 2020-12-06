@@ -1,27 +1,40 @@
 package sample;
 
+import javafx.animation.ScaleTransition;
 import javafx.geometry.Point2D;
 import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Shape;
+import javafx.util.Duration;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Random;
 
 public class ObstacleCircle extends Obstacle {
-    private final Image color0, color1, color2, color3;
     private final Line line1, line2, line3, line4, line5;
+    String image_path1, image_path2, image_path3;
+    boolean increaseDifficulty = false;
 
-    public ObstacleCircle(Image color0, Image color1, Image color2, Image color3, Image colorChangerImage, Image starImage){
-        super(color1);
+    public ObstacleCircle() throws FileNotFoundException {
+        super();
         type = 1;
-        this.color0 = color0;
-        this.color1 = color1;
-        this.color2 = color2;
-        this.color3 = color3;
+        image_path0 = "src/sample/resources/circle-0.png";
+        image_path1 = "src/sample/resources/circle-1.png";
+        image_path2 = "src/sample/resources/circle-2.png";
+        image_path3 = "src/sample/resources/circle-3.png";
+        Random random = new Random();
+        int num = random.nextInt(4);
+        while(num == C_play.lastColor)
+            num = random.nextInt(4);
+        C_play.lastColor = num;
+        this.switchColor(num);
         this.setTranslateX(250-(this.getWidth()/2));
-        this.setTranslateY(400-this.getHeight());
-        colorChanger = new ElementColorChanger(colorChangerImage);
-        colorChanger.setNextColor(1);
+        colorChanger = new ElementColorChanger();
+        colorChanger.setNextColor(num);
         colorChanger.setTranslateY(this.getTranslateY()+300);
-        star = new ElementStar(5.0, starImage);
+        star = new ElementStar(5.0);
         star.setTranslateY(this.getTranslateY()+(this.getHeight()/2)-(star.getRadius()/2));
 
 
@@ -54,16 +67,20 @@ public class ObstacleCircle extends Obstacle {
             line5.setEndX(end5.getX()); line5.setEndY(end5.getY());
         });
 
-    }
+        ScaleTransition transition = new ScaleTransition(Duration.seconds(3), this);
+        transition.setToX(1.2);
+        transition.setToY(1.2);
+        transition.setRate(1.1);
+        transition.setCycleCount(ScaleTransition.INDEFINITE);
+        transition.setAutoReverse(true);
+        if(C_play.count >= 10){
+            increaseDifficulty = true;
+        }
+        if(increaseDifficulty){
+            transition.play();
+        }
 
-//    @Override
-//    public void switchColor(int num){
-//        System.out.println("hi");;
-//        if(num == 0) this.setColor(color0);
-//        if(num == 1) this.setColor(color1);
-//        if(num == 2) this.setColor(color2);
-//        if(num == 3) this.setColor(color3);
-//    }
+    }
 
     @Override
     public boolean isCollision(Elements ball) {
@@ -89,10 +106,20 @@ public class ObstacleCircle extends Obstacle {
     }
 
     @Override
-    public void switchColor(int num) {
-        if(num == 0) this.setColor(color0);
-        if(num == 1) this.setColor(color1);
-        if(num == 2) this.setColor(color2);
-        if(num == 3) this.setColor(color3);
+    public void switchColor(int num) throws FileNotFoundException {
+
+        if(num == 0)
+            this.setFill(new ImagePattern(new Image(new FileInputStream(image_path0))));
+        if(num == 1)
+            this.setFill(new ImagePattern(new Image(new FileInputStream(image_path1))));
+        if(num == 2)
+            this.setFill(new ImagePattern(new Image(new FileInputStream(image_path2))));
+        if(num == 3)
+            this.setFill(new ImagePattern(new Image(new FileInputStream(image_path3))));
+    }
+
+    @Override
+    public void setImage() throws FileNotFoundException {
+        this.setFill(new ImagePattern(new Image(new FileInputStream(image_path1))));
     }
 }

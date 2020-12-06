@@ -26,9 +26,11 @@ public class C_window {
     @FXML
     private StackPane stackPane;
     public void press_button(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("application.fxml"));
-        Scene scene = sampleButton.getScene();
-        stackPane.getChildren().add(root);
-        stackPane.getChildren().remove(anchorPane);
+//        Parent root = FXMLLoader.load(getClass().getResource("application.fxml"));
+//        Scene scene = sampleButton.getScene();
+//        stackPane.getChildren().add(root);
+//        stackPane.getChildren().remove(anchorPane);
+        Scene HomePage = FXMLLoader.load(getClass().getResource("application.fxml"));
+        Main.gameStage.setScene(HomePage);
     }
 }

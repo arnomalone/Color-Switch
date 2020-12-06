@@ -24,24 +24,30 @@ public class C_pause {
     @FXML
     private AnchorPane anchorPane;
     public void press_resume(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("play.fxml"));
-        Scene scene = resumeButton.getScene();
-        StackPane stackPane = (StackPane) scene.getRoot();
-        stackPane.getChildren().add(root);
-        stackPane.getChildren().remove(anchorPane);
+//        Parent root = FXMLLoader.load(getClass().getResource("play.fxml"));
+//        Scene scene = resumeButton.getScene();
+//        StackPane stackPane = (StackPane) scene.getRoot();
+//        stackPane.getChildren().add(root);
+//        stackPane.getChildren().remove(anchorPane);
+        Scene HomePage = FXMLLoader.load(getClass().getResource("play.fxml"));
+        Main.gameStage.setScene(HomePage);
     }
     public void press_restart(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("play.fxml"));
-        Scene scene = restartButton.getScene();
-        StackPane stackPane = (StackPane) scene.getRoot();
-        stackPane.getChildren().add(root);
-        stackPane.getChildren().remove(anchorPane);
+//        Parent root = FXMLLoader.load(getClass().getResource("play.fxml"));
+//        Scene scene = restartButton.getScene();
+//        StackPane stackPane = (StackPane) scene.getRoot();
+//        stackPane.getChildren().add(root);
+//        stackPane.getChildren().remove(anchorPane);
+        Scene HomePage = FXMLLoader.load(getClass().getResource("play.fxml"));
+        Main.gameStage.setScene(HomePage);
     }
     public void press_main_menu(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("application.fxml"));
-        Scene scene = mainMenuButton.getScene();
-        StackPane stackPane = (StackPane) scene.getRoot();
-        stackPane.getChildren().add(root);
-        stackPane.getChildren().remove(anchorPane);
+//        Parent root = FXMLLoader.load(getClass().getResource("application.fxml"));
+//        Scene scene = mainMenuButton.getScene();
+//        StackPane stackPane = (StackPane) scene.getRoot();
+//        stackPane.getChildren().add(root);
+//        stackPane.getChildren().remove(anchorPane);
+        Scene HomePage = FXMLLoader.load(getClass().getResource("application.fxml"));
+        Main.gameStage.setScene(HomePage);
     }
 }
