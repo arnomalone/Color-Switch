@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Scene?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -7,20 +8,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" onMouseClicked="#screenPress" prefHeight="800.0" prefWidth="500.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.C_play">
-   <children>
-      <Button fx:id="pauseButton" ellipsisString="" layoutX="357.0" layoutY="25.0" mnemonicParsing="false" onAction="#press_pause" prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: transparent;" text="go back">
-         <graphic>
-            <ImageView fx:id="b" accessibleRole="BUTTON" fitHeight="41.0" fitWidth="103.0" pickOnBounds="true">
-               <image>
-                  <Image url="@resources/pause_test.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Label fx:id="label" layoutX="26.0" layoutY="14.0" prefHeight="70.0" prefWidth="107.0" style="-fx-text-fill: white; -fx-font-size: 48;" text="0">
-         <font>
-            <Font size="24.0" />
-         </font></Label>
-   </children>
-</AnchorPane>
+
+<Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.C_play">
+   <root>
+      <AnchorPane fx:id="anchorPane" onMouseClicked="#screenPress" prefHeight="800.0" prefWidth="500.0" style="-fx-background-color: black;">
+         <children>
+            <Button fx:id="pauseButton" ellipsisString="" layoutX="357.0" layoutY="25.0" mnemonicParsing="false" onAction="#press_pause" prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: transparent;" text="go back">
+               <graphic>
+                  <ImageView fx:id="b" accessibleRole="BUTTON" fitHeight="41.0" fitWidth="103.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@resources/pause_test.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label fx:id="label" layoutX="26.0" layoutY="14.0" prefHeight="70.0" prefWidth="107.0" style="-fx-text-fill: white; -fx-font-size: 48;" text="0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </root>
+</Scene>
