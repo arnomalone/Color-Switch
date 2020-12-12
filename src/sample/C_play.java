@@ -96,10 +96,8 @@ public class C_play {
             double yDist = obstacle1.getTranslateY();
             anchorPane.getChildren().removeAll(obstacle1.colorChanger, obstacle1.star, obstacle1);
             int num = random.nextInt(4);
-            if(num == 0) obstacle1 = new ObstacleCircle();
-            if(num == 1) obstacle1 = new ObstacleSquare();
-            if(num == 2) obstacle1 = new ObstacleLines();
-            if(num == 3) obstacle1 = new ObstacleTriangle();
+            if(num == 0) obstacle1 = new ObstacleCircle(); if(num == 1) obstacle1 = new ObstacleSquare();
+            if(num == 2) obstacle1 = new ObstacleLines(); if(num == 3) obstacle1 = new ObstacleTriangle();
             obstacle1.setTranslateY(yDist);
             anchorPane.getChildren().addAll(obstacle1, obstacle1.star, obstacle1.colorChanger);
         }
@@ -107,10 +105,8 @@ public class C_play {
             double yDist = obstacle2.getTranslateY();
             anchorPane.getChildren().removeAll(obstacle2.colorChanger, obstacle2.star, obstacle2);
             int num = random.nextInt(4);
-            if(num == 0) obstacle2 = new ObstacleCircle();
-            if(num == 1) obstacle2 = new ObstacleSquare();
-            if(num == 2) obstacle2 = new ObstacleLines();
-            if(num == 3) obstacle2 = new ObstacleTriangle();
+            if(num == 0) obstacle2 = new ObstacleCircle(); if(num == 1) obstacle2 = new ObstacleSquare();
+            if(num == 2) obstacle2 = new ObstacleLines(); if(num == 3) obstacle2 = new ObstacleTriangle();
             obstacle2.setTranslateY(yDist);
             anchorPane.getChildren().addAll(obstacle2, obstacle2.star, obstacle2.colorChanger);
         }
@@ -118,10 +114,8 @@ public class C_play {
             double yDist = obstacle3.getTranslateY();
             anchorPane.getChildren().removeAll(obstacle3.colorChanger, obstacle3.star, obstacle3);
             int num = random.nextInt(4);
-            if(num == 0) obstacle3 = new ObstacleCircle();
-            if(num == 1) obstacle3 = new ObstacleSquare();
-            if(num == 2) obstacle3 = new ObstacleLines();
-            if(num == 3) obstacle3 = new ObstacleTriangle();
+            if(num == 0) obstacle3 = new ObstacleCircle(); if(num == 1) obstacle3 = new ObstacleSquare();
+            if(num == 2) obstacle3 = new ObstacleLines(); if(num == 3) obstacle3 = new ObstacleTriangle();
             obstacle3.setTranslateY(yDist);
             anchorPane.getChildren().addAll(obstacle3, obstacle3.star, obstacle3.colorChanger);
         }
