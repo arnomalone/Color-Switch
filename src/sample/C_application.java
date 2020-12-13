@@ -17,9 +17,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 
 public class C_application {
 
@@ -36,7 +34,20 @@ public class C_application {
 
     @FXML
     void initialize() throws FileNotFoundException {
-        totalStarLabel.setText(Integer.toString(totalStars));
+        try
+        {
+            FileInputStream fileOut = new FileInputStream("stars");
+            ObjectInputStream outStream = new ObjectInputStream(fileOut);
+            int count = outStream.readInt();
+            System.out.println("SUCCESS");
+            totalStarLabel.setText(Integer.toString(count));
+            outStream.close();
+            fileOut.close();
+        }catch(IOException i)
+        {
+            totalStarLabel.setText(Integer.toString(0));
+            i.printStackTrace();
+        }
         starShape = new Rectangle(42, 45);
         starShape.setFill(new ImagePattern(new Image(new FileInputStream("src/sample/resources/star_tran.png"))));
         starShape.setLayoutX(26);

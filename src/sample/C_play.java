@@ -10,8 +10,8 @@ import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.animation.TranslateTransition;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+
+import java.io.*;
 import java.util.Random;
 
 public class C_play {
@@ -30,34 +30,63 @@ public class C_play {
     Obstacle obstacle1, obstacle2, obstacle3;
     TranslateTransition trans;
     static int lastColor = 2;
+    int game = 1;
 
     @FXML
     void initialize() throws FileNotFoundException {
-
         count = 0;
-
-        anchorPane.setMinHeight(800);
-        anchorPane.setMaxHeight(800);
 
         obstacle1 = new ObstacleCircle();
         obstacle2 = new ObstacleSquare();
         obstacle3 = new ObstacleLines();
 
+        try
+        {
+            File file;
+            FileInputStream fileOut = new FileInputStream("game1");
+            ObjectInputStream outStream = new ObjectInputStream(fileOut);
+            Data saved = (Data) outStream.readObject();
+//            saved.load();
+//            obstacle1 = saved.obstacle1;
+//            obstacle2 = saved.obstacle2;
+//            obstacle3 = saved.obstacle3;
+            System.out.println("SUCCESS");
+            obstacle1.setTranslateY(saved.y1);
+            obstacle2.setTranslateY(saved.y2);
+            obstacle3.setTranslateY(saved.y3);
+//            obstacle1.apply();
+            count=saved.count;
+            label.setText(Integer.toString(saved.count));
+            outStream.close();
+            fileOut.close();
+        }catch(IOException | ClassNotFoundException i)
+        {
+            i.printStackTrace();
+            obstacle1.setTranslateY(400-obstacle1.getHeight());
+            obstacle2.setTranslateY(obstacle1.getTranslateY()-450);
+            obstacle3.setTranslateY(obstacle2.getTranslateY()-450);
+        }
+
+
+        anchorPane.setMinHeight(800);
+        anchorPane.setMaxHeight(800);
+
+
         ball = new ElementBall(200, 500);
-        ball.setColor(obstacle1.colorChanger.getNextColor());
+        int color = obstacle1.colorChanger.getNextColor();
+        ball.setColor(color);
+        lastColor = color;
 
         obstacle1.colorChanger.setVisible(false);
-        obstacle1.setTranslateY(400-obstacle1.getHeight());
-        obstacle2.setTranslateY(obstacle1.getTranslateY()-450);
-        obstacle3.setTranslateY(obstacle2.getTranslateY()-450);
         obstacle1.colorChanger.setTranslateY(obstacle1.getTranslateY()+300);
         obstacle2.colorChanger.setTranslateY(obstacle2.getTranslateY()+300);
         obstacle3.colorChanger.setTranslateY(obstacle3.getTranslateY()+300);
         obstacle1.star.setTranslateY(obstacle1.getTranslateY()+(obstacle1.getHeight()/2)-(obstacle1.star.getRadius()/2));
         obstacle2.star.setTranslateY(obstacle2.getTranslateY()+(obstacle2.getHeight()/2)-(obstacle2.star.getRadius()/2));
         obstacle3.star.setTranslateY(obstacle3.getTranslateY()+(obstacle3.getHeight()/2)-(obstacle3.star.getRadius()/2));
+        anchorPane.getChildren().addAll(obstacle1, obstacle2, obstacle3);
 
-        anchorPane.getChildren().addAll(obstacle1, obstacle2, obstacle3, ball);
+        anchorPane.getChildren().add(ball);
         anchorPane.getChildren().addAll(obstacle1.colorChanger, obstacle2.colorChanger, obstacle3.colorChanger);
         anchorPane.getChildren().addAll(obstacle1.star, obstacle2.star, obstacle3.star);
 
@@ -70,13 +99,13 @@ public class C_play {
             time += 0.02;
             ball.moveDown();
 
-            if(isCollision(ball)){
-                try {
-                    gameOverMenu();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+//            if(isCollision(ball)){
+//                try {
+//                    gameOverMenu();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
 
             try {
                 moveObstacles();
@@ -176,7 +205,7 @@ public class C_play {
             star.hit=false;
         }
         if (star.isVisible() && !star.hit && (ball.getBoundsInParent().intersects(star.getBoundsInParent())
-                || (ball.getTranslateY() < star.getTranslateY())))
+                /*|| (ball.getTranslateY() < star.getTranslateY())*/))
         {
             star.hit=true;
             star.setVisible(false);
@@ -240,12 +269,31 @@ public class C_play {
     }
 
     public void gameOverMenu() throws IOException {
+
+        //
+
+
         animationTimer.stop();
         Scene HomePage = FXMLLoader.load(getClass().getResource("game_over.fxml"));
         Main.gameStage.setScene(HomePage);
     }
 
     public void press_pause(ActionEvent event) throws IOException {
+        try
+        {
+            FileOutputStream fileOut = new FileOutputStream("game1");
+            ObjectOutputStream outStream = new ObjectOutputStream(fileOut);
+            Data save = new Data(obstacle1.getTranslateY(), obstacle2.getTranslateY(), obstacle3.getTranslateY());
+//            save.save();
+//            obstacle1.save();
+            save.count=Integer.parseInt(label.getText());
+            outStream.writeObject(save);
+            outStream.close();
+            fileOut.close();
+        }catch(IOException i)
+        {
+            i.printStackTrace();
+        }
         animationTimer.stop();
         Scene HomePage = FXMLLoader.load(getClass().getResource("pause.fxml"));
         Main.gameStage.setScene(HomePage);

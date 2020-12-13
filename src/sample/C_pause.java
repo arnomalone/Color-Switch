@@ -18,9 +18,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.awt.*;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 
 public class C_pause {
     @FXML
@@ -56,6 +54,58 @@ public class C_pause {
         Main.gameStage.setScene(HomePage);
     }
     public void press_restart(ActionEvent event) throws IOException {
+        int totalstars=0;
+        try
+        {
+            FileInputStream fileOut = new FileInputStream("stars");
+            ObjectInputStream outStream = new ObjectInputStream(fileOut);
+            totalstars = outStream.readInt();
+            System.out.println("SUCCESS");
+            outStream.close();
+            fileOut.close();
+        }catch(IOException i)
+        {
+            i.printStackTrace();
+        }
+        try
+        {
+            File file;
+            FileInputStream fileOut = new FileInputStream("game1");
+            ObjectInputStream outStream = new ObjectInputStream(fileOut);
+            Data saved = (Data) outStream.readObject();
+            totalstars+= saved.count;
+            saved.count=0;
+            saved.reset();
+            outStream.close();
+            fileOut.close();
+            try
+            {
+                FileOutputStream fileOut1 = new FileOutputStream("game1");
+                ObjectOutputStream outStream1 = new ObjectOutputStream(fileOut1);
+                System.out.println(saved.count);
+                outStream1.writeObject(saved);
+                outStream1.close();
+                fileOut1.close();
+            }catch(IOException i)
+            {
+                i.printStackTrace();
+            }
+        }catch(IOException | ClassNotFoundException i)
+        {
+            i.printStackTrace();
+        }
+        try
+        {
+            FileOutputStream fileOut1 = new FileOutputStream("stars");
+            ObjectOutputStream outStream1 = new ObjectOutputStream(fileOut1);
+            System.out.println();
+            outStream1.writeInt(totalstars);
+            outStream1.close();
+            fileOut1.close();
+        }catch(IOException i)
+        {
+            i.printStackTrace();
+        }
         Scene HomePage = FXMLLoader.load(getClass().getResource("play.fxml"));
         Main.gameStage.setScene(HomePage);
     }

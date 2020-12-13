@@ -52,6 +52,11 @@ public class ObstacleTriangle extends Obstacle {
     }
 
     @Override
+    public void spawn() throws FileNotFoundException {
+
+    }
+
+    @Override
     public boolean isCollision(Elements ball) {
         Shape intersect1 = Shape.intersect(ball, line1);
         Shape intersect2 = Shape.intersect(ball, line2);

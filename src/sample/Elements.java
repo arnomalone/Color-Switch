@@ -6,9 +6,10 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 import java.io.FileNotFoundException;
+import java.io.Serializable;
 
 
-public abstract class Elements extends Rectangle {
+public abstract class Elements extends Rectangle implements Serializable {
     RotateTransition rotateTransition;
     String image_path0;
 
@@ -20,7 +21,7 @@ public abstract class Elements extends Rectangle {
     public abstract void setImage() throws FileNotFoundException;
 
     private void startRotate(){
-        rotateTransition = new RotateTransition();
+        RotateTransition rotateTransition = new RotateTransition();
         rotateTransition.setDuration(Duration.seconds(5));
         rotateTransition.setNode(this);
         rotateTransition.setByAngle(360);

@@ -25,17 +25,13 @@ public class ObstacleCircle extends Obstacle {
         image_path2 = "src/sample/resources/circle-2.png";
         image_path3 = "src/sample/resources/circle-3.png";
         Random random = new Random();
+
+        spawn();
         int num = random.nextInt(4);
         while(num == C_play.lastColor)
             num = random.nextInt(4);
         C_play.lastColor = num;
         this.switchColor(num);
-        this.setTranslateX(250-(this.getWidth()/2));
-        colorChanger = new ElementColorChanger();
-        colorChanger.setNextColor(num);
-        colorChanger.setTranslateY(this.getTranslateY()+300);
-        star = new ElementStar(5.0);
-        star.setTranslateY(this.getTranslateY()+(this.getHeight()/2)-(star.getRadius()/2));
 
 
         line1 = new Line(125, 125, 125, 25);
@@ -80,6 +76,15 @@ public class ObstacleCircle extends Obstacle {
             transition.play();
         }
 
+    }
+
+    public void spawn() throws FileNotFoundException {
+        this.setTranslateX(250-(this.getWidth()/2));
+        colorChanger = new ElementColorChanger();
+        colorChanger.setNextColor(C_play.lastColor);
+        colorChanger.setTranslateY(this.getTranslateY()+300);
+        star = new ElementStar(5.0);
+        star.setTranslateY(this.getTranslateY()+(this.getHeight()/2)-(star.getRadius()/2));
     }
 
     @Override

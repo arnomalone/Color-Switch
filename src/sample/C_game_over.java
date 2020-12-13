@@ -12,9 +12,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 
 public class C_game_over {
     @FXML
@@ -48,6 +46,31 @@ public class C_game_over {
         Main.gameStage.setScene(HomePage);
     }
     public void press_restart(ActionEvent event) throws IOException {
+        try
+        {
+            File file;
+            FileInputStream fileOut = new FileInputStream("game1");
+            ObjectInputStream outStream = new ObjectInputStream(fileOut);
+            Data saved = (Data) outStream.readObject();
+            saved.total_count+=saved.count;
+            saved.count=0;
+            outStream.close();
+            fileOut.close();
+            try
+            {
+                FileOutputStream fileOut1 = new FileOutputStream("game1");
+                ObjectOutputStream outStream1 = new ObjectOutputStream(fileOut1);
+                outStream1.writeObject(saved);
+                outStream1.close();
+                fileOut1.close();
+            }catch(IOException i)
+            {
+                i.printStackTrace();
+            }
+        }catch(IOException | ClassNotFoundException i)
+        {
+            i.printStackTrace();
+        }
         Scene HomePage = FXMLLoader.load(getClass().getResource("play.fxml"));
         Main.gameStage.setScene(HomePage);
     }
