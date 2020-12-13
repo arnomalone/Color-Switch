@@ -4,21 +4,22 @@ import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
 import javafx.util.Duration;
+//<<<<<<< HEAD
 
 import java.awt.*;
 import java.io.*;
+//=======
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+//>>>>>>> 0e05c4f4fd0ca4a38f8fb6c3e84e0a17bf763c4b
 
 public class C_pause {
     @FXML
