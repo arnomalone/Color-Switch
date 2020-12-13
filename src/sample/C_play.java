@@ -99,13 +99,13 @@ public class C_play {
             time += 0.02;
             ball.moveDown();
 
-//            if(isCollision(ball)){
-//                try {
-//                    gameOverMenu();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
+            if(isCollision(ball)){
+                try {
+                    gameOverMenu();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
 
             try {
                 moveObstacles();
