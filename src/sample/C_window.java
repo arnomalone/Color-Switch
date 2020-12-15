@@ -25,6 +25,10 @@ public class C_window {
     private AnchorPane anchorPane;
     @FXML
     private StackPane stackPane;
+    public void initialize(){
+        User me = new User();
+        common.theList = me.gameList;
+    }
     public void press_button(ActionEvent event) throws IOException {
 //        Parent root = FXMLLoader.load(getClass().getResource("application.fxml"));
 //        Scene scene = sampleButton.getScene();

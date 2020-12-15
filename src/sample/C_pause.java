@@ -54,6 +54,12 @@ public class C_pause {
         Main.gameStage.setScene(HomePage);
     }
     public void press_main_menu(ActionEvent event) throws IOException {
+//        boolean alreadyPresent = false;
+//
+//        for(int i=0;i<common.theList.size();i++){
+//
+//        }
+        common.theList.add(common.currGame);
         Scene HomePage = FXMLLoader.load(getClass().getResource("application.fxml"));
         Main.gameStage.setScene(HomePage);
     }

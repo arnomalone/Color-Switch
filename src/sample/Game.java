@@ -1,5 +1,7 @@
 package sample;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Random;
 
 public class Game {
@@ -12,8 +14,10 @@ public class Game {
     public boolean sv1, sv2, sv3;
     public int currColor1, currColor2, currColor3;
     public int ballColor;
+//    public String id;
 
     public Game(){
+//        id = "raggsss_arno";
         score = 0;
         y1 = 200.0;
         y2 = y1 - 450.0;
@@ -49,5 +53,11 @@ public class Game {
 //        currColor3 = 3;
 //        ballColor = 1;
 
+    }
+
+    @Override
+    public String toString(){
+        String timeStamp = new SimpleDateFormat("MM/dd - HH:mm:ss").format(Calendar.getInstance().getTime());
+        return timeStamp;
     }
 }

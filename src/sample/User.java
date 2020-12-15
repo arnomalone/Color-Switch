@@ -6,7 +6,7 @@ public class User {
     public int totalScore;
     public ArrayList<Game> gameList;
     public User(){
-        totalScore = 0;
+        totalScore = 30;
         gameList = new ArrayList<>();
     }
 }

@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -23,12 +24,32 @@ public class C_loaded_games {
     private Button backButton;
     @FXML
     private AnchorPane anchorPane;
+    @FXML
+    private ListView<Game> list;
+    @FXML
+    public void initialize(){
+        anchorPane.setMaxHeight(800);
+        anchorPane.setMinHeight(800);
+//        list = new ListView<>();
+        for(int i=0;i<common.theList.size();i++){
+            list.getItems().add(common.theList.get(i));
+        }
+
+        list.setOnMouseClicked(event -> {
+            Game game = list.getSelectionModel().getSelectedItem();
+            common.currGame = game;
+            Scene HomePage = null;
+            try {
+                HomePage = FXMLLoader.load(getClass().getResource("play.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            common.theList.remove(list.getSelectionModel().getSelectedIndex());
+            Main.gameStage.setScene(HomePage);
+        });
+//        anchorPane.getChildren().add(list);
+    }
     public void press_back(ActionEvent event) throws IOException {
-//        Parent root = FXMLLoader.load(getClass().getResource("play_options.fxml"));
-//        Scene scene = backButton.getScene();
-//        StackPane stackPane = (StackPane) scene.getRoot();
-//        stackPane.getChildren().add(root);
-//        stackPane.getChildren().remove(anchorPane);
         Scene HomePage = FXMLLoader.load(getClass().getResource("play_options.fxml"));
         Main.gameStage.setScene(HomePage);
     }
