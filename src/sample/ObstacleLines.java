@@ -28,7 +28,6 @@ public class ObstacleLines extends Obstacle {
         while(num == C_play.lastColor)
             num = random.nextInt(4);
         C_play.lastColor = num;
-        this.currColor = num;
         this.switchColor(num);
         this.setTranslateX(290-(this.getWidth()/3));
         colorChanger = new ElementColorChanger();
@@ -87,6 +86,7 @@ public class ObstacleLines extends Obstacle {
 
     @Override
     public void switchColor(int num) throws FileNotFoundException {
+        this.currColor = num;
         if(num == 0)
             this.setFill(new ImagePattern(new Image(new FileInputStream(image_path0))));
         if(num == 1)

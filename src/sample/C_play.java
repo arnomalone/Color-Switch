@@ -83,6 +83,9 @@ public class C_play {
         obstacle2.star.setTranslateY(obstacle2.getTranslateY()+(obstacle2.getHeight()/2)-(obstacle2.star.getRadius()/2));
         obstacle3.star.setTranslateY(obstacle3.getTranslateY()+(obstacle3.getHeight()/2)-(obstacle3.star.getRadius()/2));
 
+        obstacle1.colorChanger.setNextColor(common.currGame.currColor1);
+        obstacle2.colorChanger.setNextColor(common.currGame.currColor2);
+        obstacle3.colorChanger.setNextColor(common.currGame.currColor3);
         obstacle1.switchColor(common.currGame.currColor1);
         obstacle2.switchColor(common.currGame.currColor2);
         obstacle3.switchColor(common.currGame.currColor3);
@@ -279,24 +282,25 @@ public class C_play {
     }
 
     public void press_pause(ActionEvent event) throws IOException {
-        System.out.print("y1: " + obstacle1.getTranslateY());
-        System.out.print(" y2: " + obstacle2.getTranslateY());
-        System.out.println(" y3: " + obstacle3.getTranslateY());
-        System.out.println("y_ball: " + ball.getTranslateY());
-        System.out.print("t1: " + obstacle1.type);
-        System.out.print(" t2: " + obstacle2.type);
-        System.out.println(" t3: " + obstacle3.type);
-        System.out.print("ccv1: " + obstacle1.colorChanger.isVisible());
-        System.out.print(" ccv2: " + obstacle2.colorChanger.isVisible());
-        System.out.println(" ccv3: " + obstacle3.colorChanger.isVisible());
-        System.out.print("sv1: " + obstacle1.star.isVisible());
-        System.out.print(" sv2: " + obstacle2.star.isVisible());
-        System.out.println(" sv3: " + obstacle3.star.isVisible());
-        System.out.println("lastColor: " + lastColor);
-        System.out.print("currColor1: " + obstacle1.currColor);
-        System.out.print(" currColor2: " + obstacle2.currColor);
-        System.out.println(" currColor3: " + obstacle3.currColor);
-        System.out.println("ballColor: " + ball.currColor);
+        common.currGame.y1 = obstacle1.getTranslateY();
+        common.currGame.y2 = obstacle2.getTranslateY();
+        common.currGame.y3 = obstacle3.getTranslateY();
+        common.currGame.y_ball = ball.getTranslateY();
+        common.currGame.t1 = obstacle1.type;
+        common.currGame.t2 = obstacle2.type;
+        common.currGame.t3 = obstacle3.type;
+        common.currGame.ccv1 = obstacle1.colorChanger.isVisible();
+        common.currGame.ccv2 = obstacle2.colorChanger.isVisible();
+        common.currGame.ccv3 = obstacle3.colorChanger.isVisible();
+        common.currGame.sv1 = obstacle1.star.isVisible();
+        common.currGame.sv2 = obstacle2.star.isVisible();
+        common.currGame.sv3 = obstacle3.star.isVisible();
+        common.currGame.lastColor = lastColor;
+        common.currGame.currColor1 = obstacle1.currColor;
+        common.currGame.currColor2 = obstacle2.currColor;
+        common.currGame.currColor3 = obstacle3.currColor;
+        common.currGame.ballColor = ball.currColor;
+        common.currGame.score = count;
         animationTimer.stop();
         Scene HomePage = FXMLLoader.load(getClass().getResource("pause.fxml"));
         Main.gameStage.setScene(HomePage);

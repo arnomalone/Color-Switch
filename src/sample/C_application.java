@@ -34,6 +34,7 @@ public class C_application {
 
     @FXML
     void initialize() throws FileNotFoundException {
+        totalStars = common.totalScore;
         totalStarLabel.setText(Integer.toString(totalStars));
         starShape = new Rectangle(42, 45);
         starShape.setFill(new ImagePattern(new Image(new FileInputStream("src/sample/resources/star_tran.png"))));
