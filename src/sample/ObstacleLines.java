@@ -28,6 +28,7 @@ public class ObstacleLines extends Obstacle {
         while(num == C_play.lastColor)
             num = random.nextInt(4);
         C_play.lastColor = num;
+        this.currColor = num;
         this.switchColor(num);
         this.setTranslateX(290-(this.getWidth()/3));
         colorChanger = new ElementColorChanger();

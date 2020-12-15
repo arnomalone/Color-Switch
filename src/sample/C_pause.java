@@ -32,7 +32,7 @@ public class C_pause {
 
         int num = C_play.count;
         scoreLabel.setText(Integer.toString(num));
-        C_application.totalStars += num;
+//        C_application.totalStars += num;
         int total_stars = C_application.totalStars;
         starLabel.setText(Integer.toString(total_stars));
         ScaleTransition transition = new ScaleTransition(Duration.seconds(3), starShape);

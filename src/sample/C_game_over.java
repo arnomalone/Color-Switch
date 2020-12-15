@@ -26,7 +26,6 @@ public class C_game_over {
     public void initialize() throws FileNotFoundException {
         int num = C_play.count;
         scoreLabel.setText(Integer.toString(num));
-        C_application.totalStars += num;
         int total_stars = C_application.totalStars;
         starLabel.setText(Integer.toString(total_stars));
         starShape = new Rectangle(42, 45);
@@ -48,10 +47,14 @@ public class C_game_over {
         Main.gameStage.setScene(HomePage);
     }
     public void press_restart(ActionEvent event) throws IOException {
+        int num = C_play.count;
+        C_application.totalStars += num;
         Scene HomePage = FXMLLoader.load(getClass().getResource("play.fxml"));
         Main.gameStage.setScene(HomePage);
     }
     public void press_main_menu(ActionEvent event) throws IOException {
+        int num = C_play.count;
+        C_application.totalStars += num;
         Scene HomePage = FXMLLoader.load(getClass().getResource("application.fxml"));
         Main.gameStage.setScene(HomePage);
     }

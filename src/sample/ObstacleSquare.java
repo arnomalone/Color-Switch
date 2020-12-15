@@ -25,6 +25,7 @@ public class ObstacleSquare extends Obstacle {
         while(num == C_play.lastColor)
             num = random.nextInt(4);
         C_play.lastColor = num;
+        this.currColor = num;
         this.switchColor(num);
         this.setTranslateX(250-(this.getWidth()/2));
         colorChanger = new ElementColorChanger();

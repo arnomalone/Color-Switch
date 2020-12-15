@@ -6,6 +6,7 @@ public abstract class Obstacle extends Elements {
     protected int type;
     protected ElementColorChanger colorChanger;
     ElementStar star;
+    protected int currColor;
     public Obstacle()
     {
         super();
