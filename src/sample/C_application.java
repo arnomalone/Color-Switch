@@ -34,6 +34,7 @@ public class C_application {
 
     @FXML
     void initialize() throws FileNotFoundException {
+        common.totalScore = 30;
         totalStars = common.totalScore;
         totalStarLabel.setText(Integer.toString(totalStars));
         starShape = new Rectangle(42, 45);

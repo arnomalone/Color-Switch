@@ -64,7 +64,6 @@ public class ObstacleTriangle extends Obstacle {
 
     @Override
     public void switchColor(int num) throws FileNotFoundException {
-        this.currColor = num;
         if(num == 1)
             this.setFill(new ImagePattern(new Image(new FileInputStream(image_path0))));
         if(num == 2)

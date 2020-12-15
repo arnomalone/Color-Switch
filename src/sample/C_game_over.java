@@ -45,7 +45,6 @@ public class C_game_over {
     public void press_revive(ActionEvent event) throws IOException {
         if(C_application.totalStars >= 10){
             C_application.totalStars -= 10;
-
             Scene HomePage = FXMLLoader.load(getClass().getResource("play.fxml"));
             Main.gameStage.setScene(HomePage);
         }
@@ -56,6 +55,7 @@ public class C_game_over {
     public void press_restart(ActionEvent event) throws IOException {
         int num = C_play.count;
         C_application.totalStars += num;
+        common.currGame = new Game();
         Scene HomePage = FXMLLoader.load(getClass().getResource("play.fxml"));
         Main.gameStage.setScene(HomePage);
     }

@@ -175,8 +175,7 @@ public class C_play {
         boolean value1 = obstacle1.isCollision(ball);
         if(value1) return true;
 
-        boolean value2 = obstacle2.isCollision(ball);
-        return value2;
+        return obstacle2.isCollision(ball);
     }
 
 
@@ -275,13 +274,7 @@ public class C_play {
         trans.play();
     }
 
-    public void gameOverMenu() throws IOException {
-        animationTimer.stop();
-        Scene HomePage = FXMLLoader.load(getClass().getResource("game_over.fxml"));
-        Main.gameStage.setScene(HomePage);
-    }
-
-    public void press_pause(ActionEvent event) throws IOException {
+    public void saveState(){
         common.currGame.y1 = obstacle1.getTranslateY();
         common.currGame.y2 = obstacle2.getTranslateY();
         common.currGame.y3 = obstacle3.getTranslateY();
@@ -301,6 +294,18 @@ public class C_play {
         common.currGame.currColor3 = obstacle3.currColor;
         common.currGame.ballColor = ball.currColor;
         common.currGame.score = count;
+    }
+
+    public void gameOverMenu() throws IOException {
+        saveState();
+        common.currGame.y_ball += 200;
+        animationTimer.stop();
+        Scene HomePage = FXMLLoader.load(getClass().getResource("game_over.fxml"));
+        Main.gameStage.setScene(HomePage);
+    }
+
+    public void press_pause(ActionEvent event) throws IOException {
+        saveState();
         animationTimer.stop();
         Scene HomePage = FXMLLoader.load(getClass().getResource("pause.fxml"));
         Main.gameStage.setScene(HomePage);
