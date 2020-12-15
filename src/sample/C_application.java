@@ -15,9 +15,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 
 public class C_application {
 
@@ -34,7 +32,6 @@ public class C_application {
 
     @FXML
     void initialize() throws FileNotFoundException {
-//        common.totalScore = 30;
         totalStars = common.totalScore;
         totalStarLabel.setText(Integer.toString(totalStars));
         starShape = new Rectangle(42, 45);
@@ -59,9 +56,25 @@ public class C_application {
         Scene HomePage = FXMLLoader.load(getClass().getResource("scores.fxml"));
         Main.gameStage.setScene(HomePage);
     }
-    public void press_quit(ActionEvent event) {
+    public void press_quit(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         // Want to do something here?
+//        C_window window = new C_window();
+//        window.serialize();
+        User me = new User(common.totalScore, common.theList);
+        try{
+            FileOutputStream fileOut = new FileOutputStream("gameUser");
+            ObjectOutputStream outStream = new ObjectOutputStream(fileOut);
+            me.totalScore = C_application.totalStars;
+            outStream.writeObject(me);
+            System.out.println("done");
+            outStream.close();
+            fileOut.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//        Scene HomePage = FXMLLoader.load(getClass().getResource("sample.fxml"));
+//        Main.gameStage.setScene(HomePage);
         stage.close();
     }
 

@@ -16,25 +16,57 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.IOException;
+import java.io.*;
 
 public class C_window {
+    public User me;
     @FXML
     private Button sampleButton;
     @FXML
     private AnchorPane anchorPane;
     @FXML
     private StackPane stackPane;
+    @FXML
     public void initialize(){
-        User me = new User();
-        common.theList = me.gameList;
+        boolean isList = false;
+        try{
+            FileInputStream fileIn = new FileInputStream("gameUser");
+            System.out.println("welcome back");
+            ObjectInputStream inStream = new ObjectInputStream(fileIn);
+            me = (User) inStream.readObject();
+            common.theList = me.gameList;
+            common.totalScore = me.totalScore;
+            isList = true;
+            inStream.close();
+            fileIn.close();
+        } catch (FileNotFoundException e){
+            System.out.println("new user");
+            me = new User();
+            common.theList = me.gameList;
+        } catch (ClassNotFoundException | IOException e) {
+            e.printStackTrace();
+        }
     }
+//
+//    public void serialize(){
+//
+//        try{
+//            FileOutputStream fileOut = new FileOutputStream("gameUser");
+//            ObjectOutputStream outStream = new ObjectOutputStream(fileOut);
+//            me.totalScore = C_application.totalStars;
+//            outStream.writeObject(me);
+//            System.out.println("done");
+//            outStream.close();
+//            fileOut.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
     public void press_button(ActionEvent event) throws IOException {
-//        Parent root = FXMLLoader.load(getClass().getResource("application.fxml"));
-//        Scene scene = sampleButton.getScene();
-//        stackPane.getChildren().add(root);
-//        stackPane.getChildren().remove(anchorPane);
+//        deserialize();
         Scene HomePage = FXMLLoader.load(getClass().getResource("application.fxml"));
         Main.gameStage.setScene(HomePage);
+//        serialize();
     }
 }

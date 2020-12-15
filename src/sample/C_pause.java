@@ -33,7 +33,7 @@ public class C_pause {
         int num = C_play.count;
         scoreLabel.setText(Integer.toString(num));
 //        C_application.totalStars += num;
-        int total_stars = C_application.totalStars;
+        int total_stars = common.totalScore;
         starLabel.setText(Integer.toString(total_stars));
         ScaleTransition transition = new ScaleTransition(Duration.seconds(3), starShape);
         transition.setCycleCount(ScaleTransition.INDEFINITE);
@@ -59,8 +59,8 @@ public class C_pause {
 //        for(int i=0;i<common.theList.size();i++){
 //
 //        }
-        common.theList.add(common.currGame);
-        Scene HomePage = FXMLLoader.load(getClass().getResource("application.fxml"));
+//        common.theList.add(common.currGame);
+        Scene HomePage = FXMLLoader.load(getClass().getResource("user_input.fxml"));
         Main.gameStage.setScene(HomePage);
     }
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.C_user_input">
+    <AnchorPane fx:id="anchorPane" prefHeight="800.0" prefWidth="500.0" style="-fx-background-color: black;">
+      <children>
+         <Button fx:id="doneButton" ellipsisString="" layoutX="158.0" layoutY="361.0" mnemonicParsing="false" onAction="#press_done" prefHeight="68.0" prefWidth="182.0" style="-fx-background-color: transparent;" text="OK">
+            <graphic>
+               <ImageView fitHeight="69.0" fitWidth="161.0" pickOnBounds="true">
+                  <image>
+                     <Image url="@resources/done_text.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </Button>
+         <TextField fx:id="textField" layoutX="84.0" layoutY="233.0" prefHeight="54.0" prefWidth="331.0" style="-fx-background-color: grey; -fx-font-size: 32;" />
+         <ImageView fitHeight="45.0" fitWidth="386.0" layoutX="57.0" layoutY="131.0" pickOnBounds="true">
+            <image>
+               <Image url="@resources/enter_name_text.png" />
+            </image>
+         </ImageView>
+         <Button fx:id="backButton" layoutX="316.0" layoutY="672.0" mnemonicParsing="false" onAction="#press_back" prefHeight="72.0" prefWidth="123.0" style="-fx-background-color: transparent;" text="Back">
+            <graphic>
+               <ImageView fitHeight="53.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@resources/back_text.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </Button>
+         <Label fx:id="label" layoutX="23.0" layoutY="525.0" prefHeight="54.0" prefWidth="454.0" style="-fx-alignment: center; -fx-background-color: black; -fx-font-size: 36; -fx-text-fill: white;" text="NAME ALREADY EXISTS" />
+      </children></AnchorPane>
+</Scene>

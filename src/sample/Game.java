@@ -1,10 +1,11 @@
 package sample;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Random;
 
-public class Game {
+public class Game implements Serializable {
     public int score;
     public Double y1, y2, y3;
     public int t1, t2, t3;
@@ -14,10 +15,10 @@ public class Game {
     public boolean sv1, sv2, sv3;
     public int currColor1, currColor2, currColor3;
     public int ballColor;
-//    public String id;
+    public String name;
 
     public Game(){
-//        id = "raggsss_arno";
+        name = "raggsss_arno";
         score = 0;
         y1 = 200.0;
         y2 = y1 - 450.0;
@@ -57,7 +58,8 @@ public class Game {
 
     @Override
     public String toString(){
-        String timeStamp = new SimpleDateFormat("MM/dd - HH:mm:ss").format(Calendar.getInstance().getTime());
-        return timeStamp;
+//        String timeStamp = new SimpleDateFormat("MM/dd - HH:mm:ss").format(Calendar.getInstance().getTime());
+//        return timeStamp;
+        return this.name;
     }
 }
