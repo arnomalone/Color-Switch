@@ -21,7 +21,6 @@ public class ObstacleTriangle extends Obstacle {
         image_path2 = "src/sample/resources/triangle-3.png";
         C_play.lastColor = val;
         this.setTranslateX(250-(this.getWidth()/2));
-//        setImage();
         this.switchColor(val);
         colorChanger = new ElementColorChanger();
         colorChanger.setNextColor(val);

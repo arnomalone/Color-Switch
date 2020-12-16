@@ -33,7 +33,6 @@ public class C_loaded_games {
         list.setStyle("-fx-font-size: 24px; -fx-font-family: 'SketchFlow Print';");
         anchorPane.getStylesheets().add(getClass().getResource("listStyle.css").toExternalForm());
         list.setFixedCellSize(60.0);
-//        list = new ListView<>();
         for(int i=0;i<common.theList.size();i++){
             list.getItems().add(common.theList.get(i));
         }
@@ -71,8 +70,8 @@ public class C_loaded_games {
 
 
         });
-//        anchorPane.getChildren().add(list);
     }
+
     public void press_back(ActionEvent event) throws IOException {
         Scene HomePage = FXMLLoader.load(getClass().getResource("play_options.fxml"));
         Main.gameStage.setScene(HomePage);

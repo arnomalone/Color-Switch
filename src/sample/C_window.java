@@ -13,6 +13,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -26,6 +30,7 @@ public class C_window {
     private AnchorPane anchorPane;
     @FXML
     private StackPane stackPane;
+    private boolean done = false;
     @FXML
     public void initialize(){
         boolean isList = false;
@@ -50,26 +55,9 @@ public class C_window {
             e.printStackTrace();
         }
     }
-//
-//    public void serialize(){
-//
-//        try{
-//            FileOutputStream fileOut = new FileOutputStream("gameUser");
-//            ObjectOutputStream outStream = new ObjectOutputStream(fileOut);
-//            me.totalScore = C_application.totalStars;
-//            outStream.writeObject(me);
-//            System.out.println("done");
-//            outStream.close();
-//            fileOut.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     public void press_button(ActionEvent event) throws IOException {
-//        deserialize();
         Scene HomePage = FXMLLoader.load(getClass().getResource("application.fxml"));
         Main.gameStage.setScene(HomePage);
-//        serialize();
     }
 }

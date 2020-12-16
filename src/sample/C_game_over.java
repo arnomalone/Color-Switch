@@ -24,9 +24,12 @@ public class C_game_over {
     Label starLabel, scoreLabel, theLabel;
     @FXML
     private AnchorPane anchorPane;
+    @FXML
+    private Label label;
     Rectangle starShape;
 
     public void initialize() throws FileNotFoundException {
+        label.setVisible(false);
         int num = C_play.count;
         scoreLabel.setText(Integer.toString(num));
         int total_stars = common.totalScore;
@@ -52,6 +55,7 @@ public class C_game_over {
             Main.gameStage.setScene(HomePage);
         }
         else{
+            label.setVisible(true);
             System.out.println("not enough stars");
         }
     }
