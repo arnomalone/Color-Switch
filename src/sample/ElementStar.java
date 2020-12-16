@@ -24,7 +24,6 @@ public class ElementStar extends Elements {
         return radius;
     }
 
-    @Override
     public void setImage() throws FileNotFoundException {
         this.setFill(new ImagePattern(new Image(new FileInputStream(image_path0))));
     }

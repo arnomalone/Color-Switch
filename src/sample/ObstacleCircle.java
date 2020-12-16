@@ -17,22 +17,17 @@ public class ObstacleCircle extends Obstacle {
     String image_path1, image_path2, image_path3;
     boolean increaseDifficulty = false;
 
-    public ObstacleCircle() throws FileNotFoundException {
+    public ObstacleCircle(int val) throws FileNotFoundException {
         super();
         type = 1;
         image_path0 = "src/sample/resources/circle-0.png";
         image_path1 = "src/sample/resources/circle-1.png";
         image_path2 = "src/sample/resources/circle-2.png";
         image_path3 = "src/sample/resources/circle-3.png";
-        Random random = new Random();
-        int num = random.nextInt(4);
-        while(num == C_play.lastColor)
-            num = random.nextInt(4);
-        C_play.lastColor = num;
-        this.switchColor(num);
+        this.switchColor(val);
         this.setTranslateX(250-(this.getWidth()/2));
         colorChanger = new ElementColorChanger();
-        colorChanger.setNextColor(num);
+        colorChanger.setNextColor(val);
         colorChanger.setTranslateY(this.getTranslateY()+300);
         star = new ElementStar(5.0);
         star.setTranslateY(this.getTranslateY()+(this.getHeight()/2)-(star.getRadius()/2));
@@ -118,8 +113,4 @@ public class ObstacleCircle extends Obstacle {
             this.setFill(new ImagePattern(new Image(new FileInputStream(image_path3))));
     }
 
-    @Override
-    public void setImage() throws FileNotFoundException {
-        this.setFill(new ImagePattern(new Image(new FileInputStream(image_path1))));
-    }
 }

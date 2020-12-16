@@ -13,22 +13,17 @@ import java.util.Random;
 public class ObstacleSquare extends Obstacle {
     private final Line line1, line2, line3;
     String image_path1, image_path2, image_path3;
-    public ObstacleSquare() throws FileNotFoundException {
+    public ObstacleSquare(int val) throws FileNotFoundException {
         super();
         type = 2;
         image_path0 = "src/sample/resources/square-0.png";
         image_path1 = "src/sample/resources/square-1.png";
         image_path2 = "src/sample/resources/square-2.png";
         image_path3 = "src/sample/resources/square-3.png";
-        Random random = new Random();
-        int num = random.nextInt(4);
-        while(num == C_play.lastColor)
-            num = random.nextInt(4);
-        C_play.lastColor = num;
-        this.switchColor(num);
+        this.switchColor(val);
         this.setTranslateX(250-(this.getWidth()/2));
         colorChanger = new ElementColorChanger();
-        colorChanger.setNextColor(num);
+        colorChanger.setNextColor(val);
         star = new ElementStar(5.0);
 
         line1 = new Line(125, 125, 125, 25);
@@ -87,8 +82,4 @@ public class ObstacleSquare extends Obstacle {
             this.setFill(new ImagePattern(new Image(new FileInputStream(image_path3))));
     }
 
-    @Override
-    public void setImage() throws FileNotFoundException {
-        this.setFill(new ImagePattern(new Image(new FileInputStream(image_path0))));
-    }
 }

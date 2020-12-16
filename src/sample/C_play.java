@@ -41,20 +41,20 @@ public class C_play {
 
         label.setText(Integer.toString(count));
 
-        if(common.currGame.t1 == 1){ obstacle1 = new ObstacleCircle(); }
-        else if(common.currGame.t1 == 2){ obstacle1 = new ObstacleSquare(); }
-        else if(common.currGame.t1 == 3){ obstacle1 = new ObstacleLines(); }
-        else{ obstacle1 = new ObstacleTriangle(); }
+        if(common.currGame.t1 == 1){ obstacle1 = new ObstacleCircle(common.currGame.currColor1); }
+        else if(common.currGame.t1 == 2){ obstacle1 = new ObstacleSquare(common.currGame.currColor1); }
+        else if(common.currGame.t1 == 3){ obstacle1 = new ObstacleLines(common.currGame.currColor1); }
+        else{ obstacle1 = new ObstacleTriangle(common.currGame.currColor1); }
 
-        if(common.currGame.t2 == 1){ obstacle2 = new ObstacleCircle(); }
-        else if(common.currGame.t2 == 2){ obstacle2 = new ObstacleSquare(); }
-        else if(common.currGame.t2 == 3){ obstacle2 = new ObstacleLines(); }
-        else{ obstacle2 = new ObstacleTriangle(); }
+        if(common.currGame.t2 == 1){ obstacle2 = new ObstacleCircle(common.currGame.currColor2); }
+        else if(common.currGame.t2 == 2){ obstacle2 = new ObstacleSquare(common.currGame.currColor2); }
+        else if(common.currGame.t2 == 3){ obstacle2 = new ObstacleLines(common.currGame.currColor2); }
+        else{ obstacle2 = new ObstacleTriangle(common.currGame.currColor2); }
 
-        if(common.currGame.t3 == 1){ obstacle3 = new ObstacleCircle(); }
-        else if(common.currGame.t3 == 2){ obstacle3 = new ObstacleSquare(); }
-        else if(common.currGame.t3 == 3){ obstacle3 = new ObstacleLines(); }
-        else{ obstacle3 = new ObstacleTriangle(); }
+        if(common.currGame.t3 == 1){ obstacle3 = new ObstacleCircle(common.currGame.currColor3); }
+        else if(common.currGame.t3 == 2){ obstacle3 = new ObstacleSquare(common.currGame.currColor3); }
+        else if(common.currGame.t3 == 3){ obstacle3 = new ObstacleLines(common.currGame.currColor3); }
+        else{ obstacle3 = new ObstacleTriangle(common.currGame.currColor3); }
 
         lastColor = common.currGame.lastColor;
 //        obstacle1.switchColor();
@@ -66,9 +66,9 @@ public class C_play {
         ball = new ElementBall();
         ball.setTranslateY(common.currGame.y_ball);
 //        ball.setTranslateY(480);
-        ball.setColor(obstacle1.colorChanger.getNextColor());
+//        ball.setColor(obstacle1.colorChanger.getNextColor());
 
-        obstacle1.colorChanger.setVisible(false);
+//        obstacle1.colorChanger.setVisible(false);
         obstacle1.setTranslateY(common.currGame.y1);
         obstacle2.setTranslateY(common.currGame.y2);
         obstacle3.setTranslateY(common.currGame.y3);
@@ -86,10 +86,17 @@ public class C_play {
         obstacle1.colorChanger.setNextColor(common.currGame.currColor1);
         obstacle2.colorChanger.setNextColor(common.currGame.currColor2);
         obstacle3.colorChanger.setNextColor(common.currGame.currColor3);
-        obstacle1.switchColor(common.currGame.currColor1);
-        obstacle2.switchColor(common.currGame.currColor2);
-        obstacle3.switchColor(common.currGame.currColor3);
+//        obstacle1.switchColor(common.currGame.currColor1);
+//        obstacle2.switchColor(common.currGame.currColor2);
+//        obstacle3.switchColor(common.currGame.currColor3);
         ball.setColor(common.currGame.ballColor);
+
+        obstacle1.star.hit = common.currGame.sh1;
+        obstacle2.star.hit = common.currGame.sh2;
+        obstacle3.star.hit = common.currGame.sh3;
+        obstacle1.colorChanger.setHit(common.currGame.cch1);
+        obstacle2.colorChanger.setHit(common.currGame.cch2);
+        obstacle3.colorChanger.setHit(common.currGame.cch3);
 
         obstacle1.colorChanger.setVisible(common.currGame.ccv1);
         obstacle2.colorChanger.setVisible(common.currGame.ccv2);
@@ -137,8 +144,21 @@ public class C_play {
             double yDist = obstacle1.getTranslateY();
             anchorPane.getChildren().removeAll(obstacle1.colorChanger, obstacle1.star, obstacle1);
             int num = random.nextInt(4);
-            if(num == 0) obstacle1 = new ObstacleCircle(); if(num == 1) obstacle1 = new ObstacleSquare();
-            if(num == 2) obstacle1 = new ObstacleLines(); if(num == 3) obstacle1 = new ObstacleTriangle();
+            int color;
+            if(num != 3){
+                color = random.nextInt(4);
+                while(color == lastColor){
+                    color = random.nextInt(4);
+                }
+            }else{
+                color = random.nextInt(3)+1;
+                while(color == lastColor){
+                    color = random.nextInt(3)+1;
+                }
+            }
+            lastColor = color;
+            if(num == 0) obstacle1 = new ObstacleCircle(color); if(num == 1) obstacle1 = new ObstacleSquare(color);
+            if(num == 2) obstacle1 = new ObstacleLines(color); if(num == 3) obstacle1 = new ObstacleTriangle(color);
             obstacle1.setTranslateY(yDist);
             anchorPane.getChildren().addAll(obstacle1, obstacle1.star, obstacle1.colorChanger);
         }
@@ -146,8 +166,21 @@ public class C_play {
             double yDist = obstacle2.getTranslateY();
             anchorPane.getChildren().removeAll(obstacle2.colorChanger, obstacle2.star, obstacle2);
             int num = random.nextInt(4);
-            if(num == 0) obstacle2 = new ObstacleCircle(); if(num == 1) obstacle2 = new ObstacleSquare();
-            if(num == 2) obstacle2 = new ObstacleLines(); if(num == 3) obstacle2 = new ObstacleTriangle();
+            int color;
+            if(num != 3){
+                color = random.nextInt(4);
+                while(color == lastColor){
+                    color = random.nextInt(4);
+                }
+            }else{
+                color = random.nextInt(3)+1;
+                while(color == lastColor){
+                    color = random.nextInt(3)+1;
+                }
+            }
+            lastColor = color;
+            if(num == 0) obstacle2 = new ObstacleCircle(color); if(num == 1) obstacle2 = new ObstacleSquare(color);
+            if(num == 2) obstacle2 = new ObstacleLines(color); if(num == 3) obstacle2 = new ObstacleTriangle(color);
             obstacle2.setTranslateY(yDist);
             anchorPane.getChildren().addAll(obstacle2, obstacle2.star, obstacle2.colorChanger);
         }
@@ -155,8 +188,21 @@ public class C_play {
             double yDist = obstacle3.getTranslateY();
             anchorPane.getChildren().removeAll(obstacle3.colorChanger, obstacle3.star, obstacle3);
             int num = random.nextInt(4);
-            if(num == 0) obstacle3 = new ObstacleCircle(); if(num == 1) obstacle3 = new ObstacleSquare();
-            if(num == 2) obstacle3 = new ObstacleLines(); if(num == 3) obstacle3 = new ObstacleTriangle();
+            int color;
+            if(num != 3){
+                color = random.nextInt(4);
+                while(color == lastColor){
+                    color = random.nextInt(4);
+                }
+            }else{
+                color = random.nextInt(3)+1;
+                while(color == lastColor){
+                    color = random.nextInt(3)+1;
+                }
+            }
+            lastColor = color;
+            if(num == 0) obstacle3 = new ObstacleCircle(color); if(num == 1) obstacle3 = new ObstacleSquare(color);
+            if(num == 2) obstacle3 = new ObstacleLines(color); if(num == 3) obstacle3 = new ObstacleTriangle(color);
             obstacle3.setTranslateY(yDist);
             anchorPane.getChildren().addAll(obstacle3, obstacle3.star, obstacle3.colorChanger);
         }
@@ -292,12 +338,31 @@ public class C_play {
         common.currGame.currColor1 = obstacle1.currColor;
         common.currGame.currColor2 = obstacle2.currColor;
         common.currGame.currColor3 = obstacle3.currColor;
+        common.currGame.sh1 = obstacle1.star.hit;
+        common.currGame.sh2 = obstacle2.star.hit;
+        common.currGame.sh3 = obstacle3.star.hit;
+        common.currGame.cch1 = obstacle1.colorChanger.isHit();
+        common.currGame.cch2 = obstacle2.colorChanger.isHit();
+        common.currGame.cch3 = obstacle3.colorChanger.isHit();
+//        common.currGame.currColor1 = obstacle1.colorChanger.getNextColor();
+//        common.currGame.currColor2 = obstacle2.colorChanger.getNextColor();
+//        common.currGame.currColor3 = obstacle3.colorChanger.getNextColor();
         common.currGame.ballColor = ball.currColor;
         common.currGame.score = count;
     }
 
     public void gameOverMenu() throws IOException {
         saveState();
+        anchorPane.getChildren().removeAll(obstacle1.star, obstacle1.colorChanger, obstacle1);
+        anchorPane.getChildren().removeAll(obstacle2.star, obstacle2.colorChanger, obstacle2);
+        anchorPane.getChildren().removeAll(obstacle3.star, obstacle3.colorChanger, obstacle3);
+        System.out.print("t1(pause): " + common.currGame.t1);
+        System.out.print(" t2(pause): " + common.currGame.t2);
+        System.out.println(" t3(pause): " + common.currGame.t3);
+        System.out.print("color1(pause): " + common.currGame.currColor1);
+        System.out.print(" color2(pause): " + common.currGame.currColor2);
+        System.out.println(" color3(pause): " + common.currGame.currColor3);
+        System.out.println("ballColor(pause): " + common.currGame.ballColor);
         common.currGame.y_ball += 200;
         animationTimer.stop();
         Scene HomePage = FXMLLoader.load(getClass().getResource("game_over.fxml"));
@@ -306,6 +371,16 @@ public class C_play {
 
     public void press_pause(ActionEvent event) throws IOException {
         saveState();
+        anchorPane.getChildren().removeAll(obstacle1.star, obstacle1.colorChanger, obstacle1);
+        anchorPane.getChildren().removeAll(obstacle2.star, obstacle2.colorChanger, obstacle2);
+        anchorPane.getChildren().removeAll(obstacle3.star, obstacle3.colorChanger, obstacle3);
+        System.out.print("t1(pause): " + common.currGame.t1);
+        System.out.print(" t2(pause): " + common.currGame.t2);
+        System.out.println(" t3(pause): " + common.currGame.t3);
+        System.out.print("color1(pause): " + common.currGame.currColor1);
+        System.out.print(" color2(pause): " + common.currGame.currColor2);
+        System.out.println(" color3(pause): " + common.currGame.currColor3);
+        System.out.println("ballColor(pause): " + common.currGame.ballColor);
         animationTimer.stop();
         Scene HomePage = FXMLLoader.load(getClass().getResource("pause.fxml"));
         Main.gameStage.setScene(HomePage);

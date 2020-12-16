@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
@@ -28,10 +29,14 @@ public class C_application {
     @FXML
     Label totalStarLabel;
     Rectangle starShape;
+    @FXML
+    ImageView circle0, circle1, circle2;
+    @FXML
+    ImageView logocircle0, logocircle1;
 //    static int totalStars;
 
     @FXML
-    void initialize() throws FileNotFoundException {
+    public void initialize() throws FileNotFoundException {
 //        totalStars = common.totalScore;
         totalStarLabel.setText(Integer.toString(common.totalScore));
         starShape = new Rectangle(42, 45);
@@ -46,6 +51,48 @@ public class C_application {
         transition.setToY(1.3);
         transition.setRate(2);
         transition.play();
+        RotateTransition rotateTransition = new RotateTransition();
+        rotateTransition.setDuration(Duration.seconds(5));
+        rotateTransition.setNode(circle0);
+        rotateTransition.setByAngle(360);
+        rotateTransition.setInterpolator(Interpolator.LINEAR);
+        rotateTransition.setCycleCount(RotateTransition.INDEFINITE);
+        rotateTransition.setAutoReverse(false);
+        rotateTransition.play();
+        RotateTransition rotateTransition1 = new RotateTransition();
+        rotateTransition1.setDuration(Duration.seconds(5));
+        rotateTransition1.setNode(circle1);
+        rotateTransition1.setByAngle(360);
+        rotateTransition1.setRate(-1);
+        rotateTransition1.setInterpolator(Interpolator.LINEAR);
+        rotateTransition1.setCycleCount(RotateTransition.INDEFINITE);
+        rotateTransition1.setAutoReverse(false);
+        rotateTransition1.play();
+        RotateTransition rotateTransition2 = new RotateTransition();
+        rotateTransition2.setDuration(Duration.seconds(5));
+        rotateTransition2.setNode(logocircle0);
+        rotateTransition2.setByAngle(360);
+        rotateTransition2.setInterpolator(Interpolator.LINEAR);
+        rotateTransition2.setCycleCount(RotateTransition.INDEFINITE);
+        rotateTransition2.setAutoReverse(false);
+        rotateTransition2.play();
+        RotateTransition rotateTransition3 = new RotateTransition();
+        rotateTransition3.setDuration(Duration.seconds(5));
+        rotateTransition3.setNode(logocircle1);
+        rotateTransition3.setByAngle(360);
+        rotateTransition3.setInterpolator(Interpolator.LINEAR);
+        rotateTransition3.setCycleCount(RotateTransition.INDEFINITE);
+        rotateTransition3.setAutoReverse(false);
+        rotateTransition3.play();
+        RotateTransition rotateTransition4 = new RotateTransition();
+        rotateTransition4.setDuration(Duration.seconds(5));
+        rotateTransition4.setNode(circle2);
+        rotateTransition4.setByAngle(360);
+        rotateTransition4.setRate(-1);
+        rotateTransition4.setInterpolator(Interpolator.LINEAR);
+        rotateTransition4.setCycleCount(RotateTransition.INDEFINITE);
+        rotateTransition4.setAutoReverse(false);
+        rotateTransition4.play();
     }
 
     public void press_play(ActionEvent event) throws IOException {

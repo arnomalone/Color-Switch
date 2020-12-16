@@ -17,7 +17,7 @@ public abstract class Elements extends Rectangle {
         startRotate();
     }
 
-    public abstract void setImage() throws FileNotFoundException;
+//    public abstract void setImage() throws FileNotFoundException;
 
     private void startRotate(){
         rotateTransition = new RotateTransition();

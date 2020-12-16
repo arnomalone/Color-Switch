@@ -11,6 +11,8 @@ public class Game implements Serializable {
     public int lastColor;
     public boolean ccv1, ccv2, ccv3;
     public boolean sv1, sv2, sv3;
+    public boolean cch1, cch2, cch3;
+    public boolean sh1, sh2, sh3;
     public int currColor1, currColor2, currColor3;
     public int ballColor;
     public String name;
@@ -36,21 +38,59 @@ public class Game implements Serializable {
         sv1 = true;
         sv2 = true;
         sv3 = true;
-        currColor1 = random.nextInt(4);
-        while(currColor1==lastColor || (t1 == 4 && currColor1 == 0)){
+        cch1 = false;
+        cch2 = false;
+        cch3 = false;
+        sh1 = false;
+        sh2 = false;
+        sh3 = false;
+        if(t1 != 4){
             currColor1 = random.nextInt(4);
+            while(currColor1==lastColor){
+                currColor1 = random.nextInt(4);
+            }
+        }else{
+            currColor1 = random.nextInt(3)+1;
+            while(currColor1==lastColor){
+                currColor1 = random.nextInt(3)+1;
+            }
         }
         lastColor = currColor1;
-        currColor2 = random.nextInt(4);
-        while(currColor2==lastColor || (t2 == 4 && currColor2 == 0)){
+        if(t2 != 4){
             currColor2 = random.nextInt(4);
+            while(currColor2==lastColor){
+                currColor2 = random.nextInt(4);
+            }
+        }else{
+            currColor2 = random.nextInt(3)+1;
+            while(currColor2==lastColor){
+                currColor2 = random.nextInt(3)+1;
+            }
         }
         lastColor = currColor2;
-        currColor3 = random.nextInt(4);
-        while(currColor3==lastColor || (t3 == 4 && currColor3 == 0)){
+        if(t3 != 4){
             currColor3 = random.nextInt(4);
+            while(currColor3==lastColor){
+                currColor3 = random.nextInt(4);
+            }
+        }else{
+            currColor3 = random.nextInt(3)+1;
+            while(currColor3==lastColor){
+                currColor3 = random.nextInt(3)+1;
+            }
         }
         lastColor = currColor3;
+//        lastColor = currColor1;
+//        currColor2 = random.nextInt(4);
+//        while(currColor2==lastColor || (t2 == 4 && currColor2 == 0)){
+//            currColor2 = random.nextInt(4);
+//        }
+//        lastColor = currColor2;
+//        currColor3 = random.nextInt(4);
+//        while(currColor3==lastColor || (t3 == 4 && currColor3 == 0)){
+//            currColor3 = random.nextInt(4);
+//        }
+//        lastColor = currColor3;
 //        currColor3 = 2;
 //        currColor2 = 1;
 //        currColor1 = 3;

@@ -13,7 +13,7 @@ public class ElementColorChanger extends Elements {
         super();
         image_path0 = "src/sample/resources/color_changer_trans.png";
         setImage();
-        nextColor = 0;
+        nextColor = 1;
         this.setHeight(30);
         this.setWidth(30);
         setTranslateX(250 - (this.getWidth() / 2));
@@ -36,7 +36,6 @@ public class ElementColorChanger extends Elements {
         this.hit = hit;
     }
 
-    @Override
     public void setImage() throws FileNotFoundException {
         this.setFill(new ImagePattern(new Image(new FileInputStream(image_path0))));
     }

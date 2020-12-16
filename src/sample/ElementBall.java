@@ -50,7 +50,6 @@ public class ElementBall extends Elements {
             this.setFill(new ImagePattern(new Image(new FileInputStream(image_path3))));
     }
 
-    @Override
     public void setImage() throws FileNotFoundException {
         this.setFill(new ImagePattern(new Image(new FileInputStream(image_path1))));
     }
