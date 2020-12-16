@@ -9,6 +9,9 @@
 <?import javafx.scene.text.Font?>
 
 
+<?import javafx.scene.media.MediaPlayer?>
+<?import javafx.scene.media.Media?>
+<?import javafx.scene.media.MediaView?>
 <Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.C_play">
    <root>
       <AnchorPane fx:id="anchorPane" onMouseClicked="#screenPress" prefHeight="800.0" prefWidth="500.0" style="-fx-background-color: black;">
@@ -27,6 +30,20 @@
                   <Font size="24.0" />
                </font>
             </Label>
+<!--            <MediaView>-->
+<!--               <mediaPlayer>-->
+<!--                  <MediaPlayer fx:id="music" autoPlay="true">-->
+<!--                     <media>-->
+<!--                        <Media source="@resources/endless_sound.mp3" />-->
+<!--                     </media>-->
+<!--                  </MediaPlayer>-->
+<!--                  &lt;!&ndash;               <MediaPlayer fx:id="star_collide" autoPlay="false">&ndash;&gt;-->
+<!--                  &lt;!&ndash;                  <media>&ndash;&gt;-->
+<!--                  &lt;!&ndash;                     <Media source="@vid/star_add.mpeg" />&ndash;&gt;-->
+<!--                  &lt;!&ndash;                  </media>&ndash;&gt;-->
+<!--                  &lt;!&ndash;               </MediaPlayer>&ndash;&gt;-->
+<!--               </mediaPlayer>-->
+<!--            </MediaView>-->
          </children>
       </AnchorPane>
    </root>

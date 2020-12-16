@@ -30,10 +30,8 @@ public class C_window {
     private AnchorPane anchorPane;
     @FXML
     private StackPane stackPane;
-    private boolean done = false;
     @FXML
     public void initialize(){
-        boolean isList = false;
         try{
             FileInputStream fileIn = new FileInputStream("gameUser");
             System.out.println("welcome back");
@@ -42,7 +40,6 @@ public class C_window {
             common.theList = me.gameList;
             common.totalScore = me.totalScore;
             common.scoreList = me.scoreList;
-            isList = true;
             inStream.close();
             fileIn.close();
         } catch (FileNotFoundException e){
@@ -54,6 +51,7 @@ public class C_window {
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
+
     }
 
     public void press_button(ActionEvent event) throws IOException {

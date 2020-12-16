@@ -57,28 +57,17 @@ public class C_play {
         else{ obstacle3 = new ObstacleTriangle(common.currGame.currColor3); }
 
         lastColor = common.currGame.lastColor;
-//        obstacle1.switchColor();
-
-//        obstacle1 = new ObstacleCircle();
-//        obstacle2 = new ObstacleSquare();
-//        obstacle3 = new ObstacleLines();
-
         ball = new ElementBall();
         ball.setTranslateY(common.currGame.y_ball);
-//        ball.setTranslateY(480);
-//        ball.setColor(obstacle1.colorChanger.getNextColor());
 
-//        obstacle1.colorChanger.setVisible(false);
         obstacle1.setTranslateY(common.currGame.y1);
         obstacle2.setTranslateY(common.currGame.y2);
         obstacle3.setTranslateY(common.currGame.y3);
-//        obstacle1.setTranslateY(400-obstacle1.getHeight());
-//        obstacle1.setTranslateY(200);
-//        obstacle2.setTranslateY(obstacle1.getTranslateY()-450);
-//        obstacle3.setTranslateY(obstacle2.getTranslateY()-450);
+
         obstacle1.colorChanger.setTranslateY(obstacle1.getTranslateY()+300);
         obstacle2.colorChanger.setTranslateY(obstacle2.getTranslateY()+300);
         obstacle3.colorChanger.setTranslateY(obstacle3.getTranslateY()+300);
+
         obstacle1.star.setTranslateY(obstacle1.getTranslateY()+(obstacle1.getHeight()/2)-(obstacle1.star.getRadius()/2));
         obstacle2.star.setTranslateY(obstacle2.getTranslateY()+(obstacle2.getHeight()/2)-(obstacle2.star.getRadius()/2));
         obstacle3.star.setTranslateY(obstacle3.getTranslateY()+(obstacle3.getHeight()/2)-(obstacle3.star.getRadius()/2));
@@ -86,14 +75,13 @@ public class C_play {
         obstacle1.colorChanger.setNextColor(common.currGame.currColor1);
         obstacle2.colorChanger.setNextColor(common.currGame.currColor2);
         obstacle3.colorChanger.setNextColor(common.currGame.currColor3);
-//        obstacle1.switchColor(common.currGame.currColor1);
-//        obstacle2.switchColor(common.currGame.currColor2);
-//        obstacle3.switchColor(common.currGame.currColor3);
+
         ball.setColor(common.currGame.ballColor);
 
         obstacle1.star.hit = common.currGame.sh1;
         obstacle2.star.hit = common.currGame.sh2;
         obstacle3.star.hit = common.currGame.sh3;
+
         obstacle1.colorChanger.setHit(common.currGame.cch1);
         obstacle2.colorChanger.setHit(common.currGame.cch2);
         obstacle3.colorChanger.setHit(common.currGame.cch3);
@@ -101,6 +89,7 @@ public class C_play {
         obstacle1.colorChanger.setVisible(common.currGame.ccv1);
         obstacle2.colorChanger.setVisible(common.currGame.ccv2);
         obstacle3.colorChanger.setVisible(common.currGame.ccv3);
+
         obstacle1.star.setVisible(common.currGame.sv1);
         obstacle2.star.setVisible(common.currGame.sv2);
         obstacle3.star.setVisible(common.currGame.sv3);
@@ -114,7 +103,6 @@ public class C_play {
     AnimationTimer animationTimer = new AnimationTimer() {
         @Override
         public void handle(long l) {
-//            time += 0.016;
             time += 0.02;
             ball.moveDown();
 
@@ -232,8 +220,6 @@ public class C_play {
         {
             int num = colorChanger.getNextColor();
             obstacle.switchColor(num);
-//            System.out.println("next color: " + num);
-
             int num1 = random.nextInt(2);
             if(obstacle.type == 3){
                 if(num1==0)
@@ -344,9 +330,6 @@ public class C_play {
         common.currGame.cch1 = obstacle1.colorChanger.isHit();
         common.currGame.cch2 = obstacle2.colorChanger.isHit();
         common.currGame.cch3 = obstacle3.colorChanger.isHit();
-//        common.currGame.currColor1 = obstacle1.colorChanger.getNextColor();
-//        common.currGame.currColor2 = obstacle2.colorChanger.getNextColor();
-//        common.currGame.currColor3 = obstacle3.colorChanger.getNextColor();
         common.currGame.ballColor = ball.currColor;
         common.currGame.score = count;
     }
@@ -356,13 +339,6 @@ public class C_play {
         anchorPane.getChildren().removeAll(obstacle1.star, obstacle1.colorChanger, obstacle1);
         anchorPane.getChildren().removeAll(obstacle2.star, obstacle2.colorChanger, obstacle2);
         anchorPane.getChildren().removeAll(obstacle3.star, obstacle3.colorChanger, obstacle3);
-        System.out.print("t1(pause): " + common.currGame.t1);
-        System.out.print(" t2(pause): " + common.currGame.t2);
-        System.out.println(" t3(pause): " + common.currGame.t3);
-        System.out.print("color1(pause): " + common.currGame.currColor1);
-        System.out.print(" color2(pause): " + common.currGame.currColor2);
-        System.out.println(" color3(pause): " + common.currGame.currColor3);
-        System.out.println("ballColor(pause): " + common.currGame.ballColor);
         common.currGame.y_ball += 200;
         animationTimer.stop();
         Scene HomePage = FXMLLoader.load(getClass().getResource("game_over.fxml"));
@@ -374,13 +350,6 @@ public class C_play {
         anchorPane.getChildren().removeAll(obstacle1.star, obstacle1.colorChanger, obstacle1);
         anchorPane.getChildren().removeAll(obstacle2.star, obstacle2.colorChanger, obstacle2);
         anchorPane.getChildren().removeAll(obstacle3.star, obstacle3.colorChanger, obstacle3);
-        System.out.print("t1(pause): " + common.currGame.t1);
-        System.out.print(" t2(pause): " + common.currGame.t2);
-        System.out.println(" t3(pause): " + common.currGame.t3);
-        System.out.print("color1(pause): " + common.currGame.currColor1);
-        System.out.print(" color2(pause): " + common.currGame.currColor2);
-        System.out.println(" color3(pause): " + common.currGame.currColor3);
-        System.out.println("ballColor(pause): " + common.currGame.ballColor);
         animationTimer.stop();
         Scene HomePage = FXMLLoader.load(getClass().getResource("pause.fxml"));
         Main.gameStage.setScene(HomePage);
