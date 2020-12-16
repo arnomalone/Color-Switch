@@ -37,17 +37,17 @@ public class C_window {
             System.out.println("welcome back");
             ObjectInputStream inStream = new ObjectInputStream(fileIn);
             me = (User) inStream.readObject();
-            common.theList = me.gameList;
-            common.totalScore = me.totalScore;
-            common.scoreList = me.scoreList;
+            common.theList = me.getGameList();
+            common.totalScore = me.getTotalScore();
+            common.scoreList = me.getScoreList();
             inStream.close();
             fileIn.close();
         } catch (FileNotFoundException e){
             System.out.println("new user");
             me = new User();
-            common.theList = me.gameList;
-            common.scoreList = me.scoreList;
-            common.totalScore = me.totalScore;
+            common.theList = me.getGameList();
+            common.scoreList = me.getScoreList();
+            common.totalScore = me.getTotalScore();
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }

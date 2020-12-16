@@ -49,13 +49,6 @@ public class C_loaded_games {
                 int idx = list.getSelectionModel().getSelectedIndex();
                 if(idx != -1){
                     common.currGame = game;
-                    System.out.print("t1: " + common.currGame.t1);
-                    System.out.print(" t2: " + common.currGame.t2);
-                    System.out.println(" t3: " + common.currGame.t3);
-                    System.out.print("color1: " + common.currGame.currColor1);
-                    System.out.print(" color2: " + common.currGame.currColor2);
-                    System.out.println(" color3: " + common.currGame.currColor3);
-                    System.out.println("ballColor: " + common.currGame.ballColor);
                     Scene HomePage = null;
                     try {
                         HomePage = FXMLLoader.load(getClass().getResource("play.fxml"));

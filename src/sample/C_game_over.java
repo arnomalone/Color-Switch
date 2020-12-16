@@ -70,10 +70,10 @@ public class C_game_over {
         common.totalScore += num;
         if(common.scoreList.size()<5){
             String timeStamp = new SimpleDateFormat("MM/dd - HH:mm:ss").format(Calendar.getInstance().getTime());
-            common.scoreList.add(new ScoreBoard(common.currGame.score, timeStamp));
+            common.scoreList.add(new ScoreBoard(common.currGame.getScore(), timeStamp));
         }else{
             String timeStamp = new SimpleDateFormat("MM/dd - HH:mm:ss").format(Calendar.getInstance().getTime());
-            common.scoreList.add(new ScoreBoard(common.currGame.score, timeStamp));
+            common.scoreList.add(new ScoreBoard(common.currGame.getScore(), timeStamp));
             Collections.sort(common.scoreList);
             common.scoreList.remove(5);
         }
@@ -87,10 +87,10 @@ public class C_game_over {
         common.totalScore += num;
         if(common.scoreList.size()<5){
             String timeStamp = new SimpleDateFormat("MM/dd - HH:mm:ss").format(Calendar.getInstance().getTime());
-            common.scoreList.add(new ScoreBoard(common.currGame.score, timeStamp));
+            common.scoreList.add(new ScoreBoard(common.currGame.getScore(), timeStamp));
         }else{
             String timeStamp = new SimpleDateFormat("MM/dd - HH:mm:ss").format(Calendar.getInstance().getTime());
-            common.scoreList.add(new ScoreBoard(common.currGame.score, timeStamp));
+            common.scoreList.add(new ScoreBoard(common.currGame.getScore(), timeStamp));
             Collections.sort(common.scoreList);
             common.scoreList.remove(5);
         }

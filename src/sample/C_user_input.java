@@ -39,7 +39,7 @@ public class C_user_input {
         String name = textField.getText();
         boolean isPresent = false;
         for(int i=0;i<common.theList.size();i++){
-            if(common.theList.get(i).name.equals(name)){
+            if(common.theList.get(i).getName().equals(name)){
                 label.setVisible(true);
                 isPresent = true;
                 break;
@@ -47,8 +47,8 @@ public class C_user_input {
         }
         if(!isPresent){
             String timeStamp = new SimpleDateFormat("MM/dd - HH:mm:ss").format(Calendar.getInstance().getTime());
-            common.currGame.id = timeStamp;
-            common.currGame.name = name;
+            common.currGame.setId(timeStamp);
+            common.currGame.setName(name);
             common.theList.add(common.currGame);
             music.stop();
             Scene HomePage = FXMLLoader.load(getClass().getResource("application.fxml"));

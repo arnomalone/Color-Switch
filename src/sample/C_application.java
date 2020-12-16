@@ -101,7 +101,8 @@ public class C_application {
         try{
             FileOutputStream fileOut = new FileOutputStream("gameUser");
             ObjectOutputStream outStream = new ObjectOutputStream(fileOut);
-            me.totalScore = common.totalScore;
+//            me.totalScore = common.totalScore;
+            me.setTotalScore(common.totalScore);
             outStream.writeObject(me);
             System.out.println("done");
             outStream.close();
