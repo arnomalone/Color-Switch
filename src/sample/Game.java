@@ -1,8 +1,6 @@
 package sample;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Random;
 
 public class Game implements Serializable {
@@ -25,45 +23,45 @@ public class Game implements Serializable {
         y1 = 200.0;
         y2 = y1 - 450.0;
         y3 = y2 - 450.0;
-        t1 = 1; t2 = 2; t3 = 3;
+//        t1 = 1; t2 = 2; t3 = 3;
+        Random random = new Random();
+        t1 = random.nextInt(4)+1;
+        t2 = random.nextInt(4)+1;
+        t3 = random.nextInt(4)+1;
         y_ball = 480.0;
-        lastColor = 3;
+        lastColor = -1;
         ccv1 = false;
         ccv2 = true;
         ccv3 = true;
         sv1 = true;
         sv2 = true;
         sv3 = true;
-        currColor3 = 2;
-        currColor2 = 1;
-        currColor1 = 3;
-        ballColor = 3;
-//        score = 12;
-//        y1 = 60.67708333333334;
-//        y2 = 998.8281249999999;
-//        y3 = 537.9947916666667;
-//        y_ball = 370.7999999999871;
-//        t1 = 3; t2 = 1; t3 = 2;
-//        lastColor = 0;
-//        ccv1 = false;
-//        ccv2 = false;
-//        ccv3 = false;
-//        sv1 = true;
-//        sv2 = false;
-//        sv3 = false;
-//        currColor1 = 1;
+        currColor1 = random.nextInt(4);
+        while(currColor1==lastColor || (t1 == 4 && currColor1 == 0)){
+            currColor1 = random.nextInt();
+        }
+        lastColor = currColor1;
+        currColor2 = random.nextInt(4);
+        while(currColor2==lastColor || (t2 == 4 && currColor2 == 0)){
+            currColor2 = random.nextInt();
+        }
+        lastColor = currColor2;
+        currColor3 = random.nextInt(4);
+        while(currColor3==lastColor || (t3 == 4 && currColor3 == 0)){
+            currColor3 = random.nextInt();
+        }
+        lastColor = currColor3;
+//        currColor3 = 2;
 //        currColor2 = 1;
-//        currColor3 = 3;
-//        ballColor = 1;
-
+//        currColor1 = 3;
+        ballColor = currColor1;
+        System.out.println("t1: " + t1 + " t2: " + t2 + " t3: " + t3);
+        System.out.println("color1: " + currColor1 + " color2: " + currColor2 + " color3: " + currColor3);
     }
 
     @Override
     public String toString(){
-//        String timeStamp = new SimpleDateFormat("MM/dd - HH:mm:ss").format(Calendar.getInstance().getTime());
-//        return timeStamp;
         String output = String.format("%15s %5d ☆%20s", this.name, this.score, this.id);
-//        String output = this.name + "  |  " + this.score + " ☆ " +  " |  " + this.id;
         return output;
     }
 }
