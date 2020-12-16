@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -27,8 +28,12 @@ public class C_scores {
     private Button backButton;
     @FXML
     private ListView<ScoreBoard> list;
-
+    @FXML
+    private MediaPlayer music;
+    @FXML
     public void initialize(){
+        music.setOnEndOfMedia(() -> music.seek(Duration.ZERO));
+        music.play();
         anchorPane.setMaxHeight(800);
         anchorPane.setMinHeight(800);
         list.setStyle("-fx-font-size: 24px; -fx-font-family: 'SketchFlow Print';");
@@ -41,6 +46,7 @@ public class C_scores {
     }
 
     public void press_back(ActionEvent event) throws IOException {
+        music.stop();
         Scene HomePage = FXMLLoader.load(getClass().getResource("application.fxml"));
         Main.gameStage.setScene(HomePage);
     }

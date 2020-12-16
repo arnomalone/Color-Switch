@@ -33,16 +33,11 @@
             </Button>
             <MediaView>
                <mediaPlayer>
-                  <MediaPlayer fx:id="music" autoPlay="true">
+                  <MediaPlayer fx:id="music" >
                      <media>
                         <Media source="@resources/endless_sound.mp3" />
                      </media>
                   </MediaPlayer>
-                  <!--               <MediaPlayer fx:id="star_collide" autoPlay="false">-->
-                  <!--                  <media>-->
-                  <!--                     <Media source="@vid/star_add.mpeg" />-->
-                  <!--                  </media>-->
-                  <!--               </MediaPlayer>-->
                </mediaPlayer>
             </MediaView>
          </children>

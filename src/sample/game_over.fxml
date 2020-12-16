@@ -7,6 +7,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.media.MediaPlayer?>
+<?import javafx.scene.media.Media?>
 <Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.C_game_over">
    <root>
       <AnchorPane fx:id="anchorPane" prefHeight="800.0" prefWidth="500.0" style="-fx-background-color: black;">
@@ -47,6 +50,15 @@
             <Label fx:id="label" layoutX="57.0" layoutY="385.0" prefHeight="47.0" prefWidth="386.0" style="-fx-text-fill: white; -fx-font-size: 32; -fx-alignment: center;" text="NOT ENOUGH STARS :(" />
             <Label fx:id="theLabel" ellipsisString="" layoutX="101.0" layoutY="305.0" style="-fx-alignment: center; -fx-font-size: 54; -fx-text-fill: white;" text="SCORE:" />
             <Label fx:id="scoreLabel" layoutX="303.0" layoutY="305.0" prefHeight="80.0" prefWidth="140.0" style="-fx-font-size: 54; -fx-text-fill: white;" text="0" />
+              <MediaView>
+                  <mediaPlayer>
+                      <MediaPlayer fx:id="music" >
+                          <media>
+                              <Media source="@resources/endless_sound.mp3" />
+                          </media>
+                      </MediaPlayer>
+                  </mediaPlayer>
+              </MediaView>
           </children>
       </AnchorPane>
    </root>

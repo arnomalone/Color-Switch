@@ -8,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -24,8 +26,12 @@ public class C_user_input {
     private TextField textField;
     @FXML
     private Label label;
-
+    @FXML
+    private MediaPlayer music;
+    @FXML
     public void initialize(){
+        music.setOnEndOfMedia(() -> music.seek(Duration.ZERO));
+        music.play();
         label.setVisible(false);
     }
 
@@ -44,11 +50,13 @@ public class C_user_input {
             common.currGame.id = timeStamp;
             common.currGame.name = name;
             common.theList.add(common.currGame);
+            music.stop();
             Scene HomePage = FXMLLoader.load(getClass().getResource("application.fxml"));
             Main.gameStage.setScene(HomePage);
         }
     }
     public void press_back(ActionEvent event) throws IOException {
+        music.stop();
         Scene HomePage = FXMLLoader.load(getClass().getResource("pause.fxml"));
         Main.gameStage.setScene(HomePage);
     }

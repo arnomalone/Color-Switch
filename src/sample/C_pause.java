@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
@@ -22,8 +23,12 @@ public class C_pause {
     private AnchorPane anchorPane;
     @FXML
     Rectangle starShape;
-
+    @FXML
+    private MediaPlayer music;
+    @FXML
     public void initialize() throws FileNotFoundException {
+        music.setOnEndOfMedia(() -> music.seek(Duration.ZERO));
+        music.play();
         starShape = new Rectangle(42, 45);
         starShape.setFill(new ImagePattern(new Image(new FileInputStream("src/sample/resources/star_tran.png"))));
         starShape.setLayoutX(25);
@@ -32,7 +37,6 @@ public class C_pause {
 
         int num = C_play.count;
         scoreLabel.setText(Integer.toString(num));
-//        C_application.totalStars += num;
         int total_stars = common.totalScore;
         starLabel.setText(Integer.toString(total_stars));
         ScaleTransition transition = new ScaleTransition(Duration.seconds(3), starShape);
@@ -45,22 +49,18 @@ public class C_pause {
     }
 
     public void press_resume(ActionEvent event) throws IOException {
-        System.out.print("t1: " + common.currGame.t1);
-        System.out.print(" t2: " + common.currGame.t2);
-        System.out.println(" t3: " + common.currGame.t3);
-        System.out.print("color1: " + common.currGame.currColor1);
-        System.out.print(" color2: " + common.currGame.currColor2);
-        System.out.println(" color3: " + common.currGame.currColor3);
-        System.out.println("ballColor: " + common.currGame.ballColor);
+        music.stop();
         Scene HomePage = FXMLLoader.load(getClass().getResource("play.fxml"));
         Main.gameStage.setScene(HomePage);
     }
     public void press_restart(ActionEvent event) throws IOException {
+        music.stop();
         common.currGame = new Game();
         Scene HomePage = FXMLLoader.load(getClass().getResource("play.fxml"));
         Main.gameStage.setScene(HomePage);
     }
     public void press_main_menu(ActionEvent event) throws IOException {
+        music.stop();
         Scene HomePage = FXMLLoader.load(getClass().getResource("user_input.fxml"));
         Main.gameStage.setScene(HomePage);
     }

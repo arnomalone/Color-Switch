@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
@@ -25,10 +26,14 @@ public class C_game_over {
     @FXML
     private AnchorPane anchorPane;
     @FXML
+    private MediaPlayer music;
+    @FXML
     private Label label;
     Rectangle starShape;
 
     public void initialize() throws FileNotFoundException {
+        music.setOnEndOfMedia(() -> music.seek(Duration.ZERO));
+        music.play();
         label.setVisible(false);
         int num = C_play.count;
         scoreLabel.setText(Integer.toString(num));
@@ -51,6 +56,7 @@ public class C_game_over {
     public void press_revive(ActionEvent event) throws IOException {
         if(common.totalScore >= 10){
             common.totalScore -= 10;
+            music.stop();
             Scene HomePage = FXMLLoader.load(getClass().getResource("play.fxml"));
             Main.gameStage.setScene(HomePage);
         }
@@ -71,6 +77,7 @@ public class C_game_over {
             Collections.sort(common.scoreList);
             common.scoreList.remove(5);
         }
+        music.stop();
         common.currGame = new Game();
         Scene HomePage = FXMLLoader.load(getClass().getResource("play.fxml"));
         Main.gameStage.setScene(HomePage);
@@ -87,6 +94,7 @@ public class C_game_over {
             Collections.sort(common.scoreList);
             common.scoreList.remove(5);
         }
+        music.stop();
         Scene HomePage = FXMLLoader.load(getClass().getResource("application.fxml"));
         Main.gameStage.setScene(HomePage);
     }

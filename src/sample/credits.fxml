@@ -7,6 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
+<?import javafx.scene.media.MediaPlayer?>
+<?import javafx.scene.media.Media?>
+<?import javafx.scene.media.MediaView?>
 <Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.C_credits">
    <root>
       <AnchorPane prefHeight="800.0" prefWidth="500.0" style="-fx-background-color: transparent;">
@@ -25,6 +28,15 @@
                       </ImageView>
                </graphic>
             </Button>
+              <MediaView>
+                  <mediaPlayer>
+                      <MediaPlayer fx:id="music" >
+                          <media>
+                              <Media source="@resources/endless_sound.mp3" />
+                          </media>
+                      </MediaPlayer>
+                  </mediaPlayer>
+              </MediaView>
           </children>
       </AnchorPane>
    </root>

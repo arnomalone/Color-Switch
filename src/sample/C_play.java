@@ -10,6 +10,9 @@ import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.animation.TranslateTransition;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Random;
@@ -21,6 +24,8 @@ public class C_play {
     private AnchorPane anchorPane;
     @FXML
     private Label label;
+    @FXML
+    private MediaPlayer music;
     static int count;
     private double time = 0;
     boolean notStart = true;
@@ -33,7 +38,8 @@ public class C_play {
 
     @FXML
     void initialize() throws FileNotFoundException {
-
+        music.setOnEndOfMedia(() -> music.seek(Duration.ZERO));
+        music.play();
         count = common.currGame.score;
 
         anchorPane.setMinHeight(800);
@@ -341,6 +347,7 @@ public class C_play {
         anchorPane.getChildren().removeAll(obstacle3.star, obstacle3.colorChanger, obstacle3);
         common.currGame.y_ball += 200;
         animationTimer.stop();
+        music.stop();
         Scene HomePage = FXMLLoader.load(getClass().getResource("game_over.fxml"));
         Main.gameStage.setScene(HomePage);
     }
@@ -351,6 +358,7 @@ public class C_play {
         anchorPane.getChildren().removeAll(obstacle2.star, obstacle2.colorChanger, obstacle2);
         anchorPane.getChildren().removeAll(obstacle3.star, obstacle3.colorChanger, obstacle3);
         animationTimer.stop();
+        music.stop();
         Scene HomePage = FXMLLoader.load(getClass().getResource("pause.fxml"));
         Main.gameStage.setScene(HomePage);
     }

@@ -84,6 +84,15 @@
                      </image>
                   </ImageView>
                </graphic></Button>
+            <MediaView>
+               <mediaPlayer>
+                  <MediaPlayer fx:id="music" >
+                     <media>
+                        <Media source="@resources/endless_sound.mp3" />
+                     </media>
+                  </MediaPlayer>
+               </mediaPlayer>
+            </MediaView>
          </children>
       </AnchorPane>
    </root>

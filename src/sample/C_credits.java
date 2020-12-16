@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -23,12 +24,15 @@ public class C_credits {
     private Button backButton;
     @FXML
     private AnchorPane anchorPane;
+    @FXML
+    private MediaPlayer music;
+    @FXML
+    void initialize(){
+        music.setOnEndOfMedia(() -> music.seek(Duration.ZERO));
+        music.play();
+    }
     public void press_back(ActionEvent event) throws IOException {
-//        Parent root = FXMLLoader.load(getClass().getResource("application.fxml"));
-//        Scene scene = backButton.getScene();
-//        StackPane stackPane = (StackPane) scene.getRoot();
-//        stackPane.getChildren().add(root);
-//        stackPane.getChildren().remove(anchorPane);
+        music.stop();
         Scene HomePage = FXMLLoader.load(getClass().getResource("application.fxml"));
         Main.gameStage.setScene(HomePage);
     }

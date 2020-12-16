@@ -30,20 +30,15 @@
                   <Font size="24.0" />
                </font>
             </Label>
-<!--            <MediaView>-->
-<!--               <mediaPlayer>-->
-<!--                  <MediaPlayer fx:id="music" autoPlay="true">-->
-<!--                     <media>-->
-<!--                        <Media source="@resources/endless_sound.mp3" />-->
-<!--                     </media>-->
-<!--                  </MediaPlayer>-->
-<!--                  &lt;!&ndash;               <MediaPlayer fx:id="star_collide" autoPlay="false">&ndash;&gt;-->
-<!--                  &lt;!&ndash;                  <media>&ndash;&gt;-->
-<!--                  &lt;!&ndash;                     <Media source="@vid/star_add.mpeg" />&ndash;&gt;-->
-<!--                  &lt;!&ndash;                  </media>&ndash;&gt;-->
-<!--                  &lt;!&ndash;               </MediaPlayer>&ndash;&gt;-->
-<!--               </mediaPlayer>-->
-<!--            </MediaView>-->
+            <MediaView>
+               <mediaPlayer>
+                  <MediaPlayer fx:id="music" >
+                     <media>
+                        <Media source="@resources/endless_sound.mp3" />
+                     </media>
+                  </MediaPlayer>
+               </mediaPlayer>
+            </MediaView>
          </children>
       </AnchorPane>
    </root>
