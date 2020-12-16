@@ -17,7 +17,7 @@ public class Game implements Serializable {
     public String id;
 
     public Game(){
-        name = "raggsss_arno";
+        name = "";
         id = "10";
         score = 0;
         y1 = 200.0;
@@ -38,17 +38,17 @@ public class Game implements Serializable {
         sv3 = true;
         currColor1 = random.nextInt(4);
         while(currColor1==lastColor || (t1 == 4 && currColor1 == 0)){
-            currColor1 = random.nextInt();
+            currColor1 = random.nextInt(4);
         }
         lastColor = currColor1;
         currColor2 = random.nextInt(4);
         while(currColor2==lastColor || (t2 == 4 && currColor2 == 0)){
-            currColor2 = random.nextInt();
+            currColor2 = random.nextInt(4);
         }
         lastColor = currColor2;
         currColor3 = random.nextInt(4);
         while(currColor3==lastColor || (t3 == 4 && currColor3 == 0)){
-            currColor3 = random.nextInt();
+            currColor3 = random.nextInt(4);
         }
         lastColor = currColor3;
 //        currColor3 = 2;

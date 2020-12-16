@@ -15,6 +15,9 @@ import javafx.util.Duration;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Collections;
 
 public class C_game_over {
     @FXML
@@ -43,8 +46,8 @@ public class C_game_over {
     }
 
     public void press_revive(ActionEvent event) throws IOException {
-        if(C_application.totalStars >= 10){
-            C_application.totalStars -= 10;
+        if(common.totalScore >= 10){
+            common.totalScore -= 10;
             Scene HomePage = FXMLLoader.load(getClass().getResource("play.fxml"));
             Main.gameStage.setScene(HomePage);
         }
@@ -55,6 +58,15 @@ public class C_game_over {
     public void press_restart(ActionEvent event) throws IOException {
         int num = C_play.count;
         common.totalScore += num;
+        if(common.scoreList.size()<5){
+            String timeStamp = new SimpleDateFormat("MM/dd - HH:mm:ss").format(Calendar.getInstance().getTime());
+            common.scoreList.add(new ScoreBoard(common.currGame.score, timeStamp));
+        }else{
+            String timeStamp = new SimpleDateFormat("MM/dd - HH:mm:ss").format(Calendar.getInstance().getTime());
+            common.scoreList.add(new ScoreBoard(common.currGame.score, timeStamp));
+            Collections.sort(common.scoreList);
+            common.scoreList.remove(5);
+        }
         common.currGame = new Game();
         Scene HomePage = FXMLLoader.load(getClass().getResource("play.fxml"));
         Main.gameStage.setScene(HomePage);
@@ -62,6 +74,15 @@ public class C_game_over {
     public void press_main_menu(ActionEvent event) throws IOException {
         int num = C_play.count;
         common.totalScore += num;
+        if(common.scoreList.size()<5){
+            String timeStamp = new SimpleDateFormat("MM/dd - HH:mm:ss").format(Calendar.getInstance().getTime());
+            common.scoreList.add(new ScoreBoard(common.currGame.score, timeStamp));
+        }else{
+            String timeStamp = new SimpleDateFormat("MM/dd - HH:mm:ss").format(Calendar.getInstance().getTime());
+            common.scoreList.add(new ScoreBoard(common.currGame.score, timeStamp));
+            Collections.sort(common.scoreList);
+            common.scoreList.remove(5);
+        }
         Scene HomePage = FXMLLoader.load(getClass().getResource("application.fxml"));
         Main.gameStage.setScene(HomePage);
     }

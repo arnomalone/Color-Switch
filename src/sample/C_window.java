@@ -36,6 +36,7 @@ public class C_window {
             me = (User) inStream.readObject();
             common.theList = me.gameList;
             common.totalScore = me.totalScore;
+            common.scoreList = me.scoreList;
             isList = true;
             inStream.close();
             fileIn.close();
@@ -43,6 +44,8 @@ public class C_window {
             System.out.println("new user");
             me = new User();
             common.theList = me.gameList;
+            common.scoreList = me.scoreList;
+            common.totalScore = me.totalScore;
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }

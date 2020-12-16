@@ -28,12 +28,12 @@ public class C_application {
     @FXML
     Label totalStarLabel;
     Rectangle starShape;
-    static int totalStars;
+//    static int totalStars;
 
     @FXML
     void initialize() throws FileNotFoundException {
-        totalStars = common.totalScore;
-        totalStarLabel.setText(Integer.toString(totalStars));
+//        totalStars = common.totalScore;
+        totalStarLabel.setText(Integer.toString(common.totalScore));
         starShape = new Rectangle(42, 45);
         starShape.setFill(new ImagePattern(new Image(new FileInputStream("src/sample/resources/star_tran.png"))));
         starShape.setLayoutX(26);
@@ -61,11 +61,11 @@ public class C_application {
         // Want to do something here?
 //        C_window window = new C_window();
 //        window.serialize();
-        User me = new User(common.totalScore, common.theList);
+        User me = new User(common.totalScore, common.theList, common.scoreList);
         try{
             FileOutputStream fileOut = new FileOutputStream("gameUser");
             ObjectOutputStream outStream = new ObjectOutputStream(fileOut);
-            me.totalScore = C_application.totalStars;
+            me.totalScore = common.totalScore;
             outStream.writeObject(me);
             System.out.println("done");
             outStream.close();
