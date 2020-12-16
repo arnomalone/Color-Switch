@@ -16,6 +16,8 @@ public class ObstacleCircle extends Obstacle {
     private final Line line1, line2, line3, line4, line5;
     String image_path1, image_path2, image_path3;
     boolean increaseDifficulty = false;
+    boolean increaseDifficulty2 = false;
+
 
     public ObstacleCircle(int val) throws FileNotFoundException {
         super();
@@ -73,6 +75,13 @@ public class ObstacleCircle extends Obstacle {
         }
         if(increaseDifficulty){
             transition.play();
+        }
+        if(C_play.count >= 20){
+            increaseDifficulty2 = true;
+        }
+        if(increaseDifficulty2){
+            double currRate = this.rotateTransition.getRate();
+            this.rotateTransition.setRate(currRate+0.35);
         }
 
     }

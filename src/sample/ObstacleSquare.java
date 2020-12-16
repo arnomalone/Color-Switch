@@ -1,10 +1,12 @@
 package sample;
 
+import javafx.animation.ScaleTransition;
 import javafx.geometry.Point2D;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Shape;
+import javafx.util.Duration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,6 +15,9 @@ import java.util.Random;
 public class ObstacleSquare extends Obstacle {
     private final Line line1, line2, line3;
     String image_path1, image_path2, image_path3;
+    boolean increaseDifficulty = false;
+    boolean increaseDifficulty2 = false;
+
     public ObstacleSquare(int val) throws FileNotFoundException {
         super();
         type = 2;
@@ -51,6 +56,25 @@ public class ObstacleSquare extends Obstacle {
             line3.setEndY(end3.getY());
         });
 
+        ScaleTransition transition = new ScaleTransition(Duration.seconds(3), this);
+        transition.setToX(1.2);
+        transition.setToY(1.2);
+        transition.setRate(1.1);
+        transition.setCycleCount(ScaleTransition.INDEFINITE);
+        transition.setAutoReverse(true);
+        if(C_play.count >= 10){
+            increaseDifficulty = true;
+        }
+        if(C_play.count >= 20){
+            increaseDifficulty2 = true;
+        }
+        if(increaseDifficulty2){
+            double currRate = this.rotateTransition.getRate();
+            this.rotateTransition.setRate(currRate+0.35);
+        }
+        if(increaseDifficulty){
+            transition.play();
+        }
     }
 
     @Override
