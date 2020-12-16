@@ -19,6 +19,8 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Iterator;
 
 public class C_loaded_games {
     @FXML
@@ -38,8 +40,9 @@ public class C_loaded_games {
         list.setStyle("-fx-font-size: 24px; -fx-font-family: 'SketchFlow Print';");
         anchorPane.getStylesheets().add(getClass().getResource("listStyle.css").toExternalForm());
         list.setFixedCellSize(60.0);
-        for(int i=0;i<common.theList.size();i++){
-            list.getItems().add(common.theList.get(i));
+
+        for(Game game: common.theList){
+            list.getItems().add(game);
         }
 
         list.setOnMouseClicked(event -> {

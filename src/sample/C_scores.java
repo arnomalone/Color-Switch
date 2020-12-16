@@ -40,8 +40,8 @@ public class C_scores {
         anchorPane.getStylesheets().add(getClass().getResource("listStyle.css").toExternalForm());
         list.setFixedCellSize(60.0);
         Collections.sort(common.scoreList);
-        for(int i=0;i<common.scoreList.size();i++){
-            list.getItems().add(common.scoreList.get(i));
+        for(ScoreBoard scoreBoard: common.scoreList){
+            list.getItems().add(scoreBoard);
         }
     }
 
