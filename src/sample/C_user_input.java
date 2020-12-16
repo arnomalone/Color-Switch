@@ -19,6 +19,8 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class C_user_input {
     @FXML
@@ -48,6 +50,8 @@ public class C_user_input {
             }
         }
         if(!isPresent){
+            String timeStamp = new SimpleDateFormat("MM/dd - HH:mm:ss").format(Calendar.getInstance().getTime());
+            common.currGame.id = timeStamp;
             common.currGame.name = name;
             common.theList.add(common.currGame);
             Scene HomePage = FXMLLoader.load(getClass().getResource("application.fxml"));

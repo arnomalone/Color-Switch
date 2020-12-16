@@ -16,9 +16,11 @@ public class Game implements Serializable {
     public int currColor1, currColor2, currColor3;
     public int ballColor;
     public String name;
+    public String id;
 
     public Game(){
         name = "raggsss_arno";
+        id = "10";
         score = 0;
         y1 = 200.0;
         y2 = y1 - 450.0;
@@ -60,6 +62,8 @@ public class Game implements Serializable {
     public String toString(){
 //        String timeStamp = new SimpleDateFormat("MM/dd - HH:mm:ss").format(Calendar.getInstance().getTime());
 //        return timeStamp;
-        return this.name;
+        String output = String.format("%15s %5d ☆%20s", this.name, this.score, this.id);
+//        String output = this.name + "  |  " + this.score + " ☆ " +  " |  " + this.id;
+        return output;
     }
 }

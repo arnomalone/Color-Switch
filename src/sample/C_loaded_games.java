@@ -30,22 +30,39 @@ public class C_loaded_games {
     public void initialize(){
         anchorPane.setMaxHeight(800);
         anchorPane.setMinHeight(800);
+        list.setStyle("-fx-font-size: 24px; -fx-font-family: 'SketchFlow Print';");
+        anchorPane.getStylesheets().add(getClass().getResource("listStyle.css").toExternalForm());
+        list.setFixedCellSize(60.0);
 //        list = new ListView<>();
         for(int i=0;i<common.theList.size();i++){
             list.getItems().add(common.theList.get(i));
         }
 
         list.setOnMouseClicked(event -> {
-            Game game = list.getSelectionModel().getSelectedItem();
-            common.currGame = game;
-            Scene HomePage = null;
-            try {
-                HomePage = FXMLLoader.load(getClass().getResource("play.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
+            Game game = null;
+            try{
+                game = list.getSelectionModel().getSelectedItem();
+                int idx = list.getSelectionModel().getSelectedIndex();
+                if(idx != -1){
+                    common.currGame = game;
+                    Scene HomePage = null;
+                    try {
+                        HomePage = FXMLLoader.load(getClass().getResource("play.fxml"));
+                        if(idx >= 0){
+                            common.theList.remove(list.getSelectionModel().getSelectedIndex());
+                        }
+                        Main.gameStage.setScene(HomePage);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (NullPointerException e){
+                        System.out.println("no items");
+                    }
+                }
+            } catch (NullPointerException e){
+                System.out.println("no no items");
             }
-            common.theList.remove(list.getSelectionModel().getSelectedIndex());
-            Main.gameStage.setScene(HomePage);
+
+
         });
 //        anchorPane.getChildren().add(list);
     }
