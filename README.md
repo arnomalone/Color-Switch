@@ -27,9 +27,14 @@ Made as a part of end-term project in Advanced Programming Course (CSE201) at II
 - Revive: The user can revive if he/she has enough stars (10 stars per revival) and feels like continuing or start afresh otherwise.
 
 ## Design Patterns
-1. Singleton - Instance of the final database which stores data of several games is limited to one as there is no need of multiple databases.
-2. Iterator - Ensured ordered accessing of the list of saved games in the database while loading into different menu screens.
-3. Facade - Hidden complexities of various in-game components and menus using facade based implementation.
+- Iterator - Ordered accessing of lists when required.
+- Template - Used in interface and in-game interactions.
+- Facade - Distribution of tasks between entities.
+- Decorator - Scanner and File streams used to save the game.
+- Composite - Current game holds object of its own type.
+- Observer - Event handler and Key listeners as observers.
+- Chain of responsibility - Event handlers and key listeners use chain of responsibility internally to function.
+- State - Game is implemented using various states such as collision, state saving, revival.
 - Threading - All the in-game animations are done using AnimationTimers each being an individual thread in JVM
 
 
