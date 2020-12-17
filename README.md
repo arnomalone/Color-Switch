@@ -15,6 +15,9 @@ Made as a part of end-term project in Advanced Programming Course (CSE201) at II
 - User can unlock and choose between different shapes of the ball.
 - User can save multiple game states and reload or restart them at any time.
 - Cool background music.
+- The user can see top 5 highest scores ever reached in the game.
+- Users that are new to the game are provided with a guide to start off good.
+- Obstacles will be changing sizes every second to make the game more interesting and difficult.
 
 ## Implementation
 - Navigation: navigation of on-screen components done using FXML.
@@ -24,9 +27,10 @@ Made as a part of end-term project in Advanced Programming Course (CSE201) at II
 - Revive: The user can revive if he/she has enough stars (10 stars per revival) and feels like continuing or start afresh otherwise.
 
 ## Design Patterns
-1. Singleton: Instance of the final database which stores data of several games is limited to one as there is no need of multiple databases.
+1. Singleton - Instance of the final database which stores data of several games is limited to one as there is no need of multiple databases.
 2. Iterator - Ensured ordered accessing of the list of saved games in the database while loading into different menu screens.
 3. Facade - Hidden complexities of various in-game components and menus using facade based implementation.
+- Threading - All the in-game animations are done using AnimationTimers each being an individual thread in JVM
 
 
 ## Screenshots from the game
