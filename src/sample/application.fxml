@@ -6,10 +6,10 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-
-<?import javafx.scene.media.MediaPlayer?>
 <?import javafx.scene.media.Media?>
+<?import javafx.scene.media.MediaPlayer?>
 <?import javafx.scene.media.MediaView?>
+
 <Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.C_application">
    <root>
       <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="500.0" style="-fx-background-color: black;">
@@ -86,13 +86,22 @@
                </graphic></Button>
             <MediaView>
                <mediaPlayer>
-                  <MediaPlayer fx:id="music" >
+                  <MediaPlayer fx:id="music">
                      <media>
                         <Media source="@resources/endless_sound.mp3" />
                      </media>
                   </MediaPlayer>
                </mediaPlayer>
             </MediaView>
+            <Button fx:id="shopButton" alignment="CENTER" ellipsisString="" layoutX="381.0" layoutY="170.0" mnemonicParsing="false" onAction="#press_shop" prefHeight="73.0" prefWidth="94.0" style="-fx-background-color: transparent;" text="Shop" textAlignment="CENTER">
+               <graphic>
+                  <ImageView fx:id="shopImage" fitHeight="73.0" fitWidth="82.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@resources/shop.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </root>

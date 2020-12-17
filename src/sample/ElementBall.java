@@ -12,16 +12,16 @@ import java.io.FileNotFoundException;
 public class ElementBall extends Elements {
     String image_path1, image_path2, image_path3;
     int currColor;
-    public ElementBall() throws FileNotFoundException {
+    public ElementBall() {
         super();
-        image_path0 = "src/sample/resources/purple_ball.png";
-        image_path1 = "src/sample/resources/yellow_ball.png";
-        image_path2 = "src/sample/resources/red_ball.png";
-        image_path3 = "src/sample/resources/blue_ball.png";
-        this.setImage();
-        this.setHeight(20);
-        this.setWidth(20);
-        setTranslateX(250-(this.getWidth()/2));
+//        image_path0 = "src/sample/resources/purple_ball.png";
+//        image_path1 = "src/sample/resources/yellow_ball.png";
+//        image_path2 = "src/sample/resources/red_ball.png";
+//        image_path3 = "src/sample/resources/blue_ball.png";
+//        this.setImage();
+//        this.setHeight(20);
+//        this.setWidth(20);
+//        setTranslateX(250-(this.getWidth()/2));
 //        setTranslateY(500-(this.getHeight()/2));
     }
     void moveUp() {

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.media.Media?>
+<?import javafx.scene.media.MediaPlayer?>
+<?import javafx.scene.media.MediaView?>
+
+<Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.C_shop">
+    <root>
+        <AnchorPane fx:id="anchorPane" prefHeight="800.0" prefWidth="500.0" style="-fx-background-color: black;">
+            <children>
+                <Button fx:id="backButton" layoutX="67.0" layoutY="681.0" mnemonicParsing="false" onAction="#press_back" prefHeight="72.0" prefWidth="123.0" style="-fx-background-color: transparent;" text="Back">
+                    <graphic>
+                        <ImageView fitHeight="53.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@resources/back_text.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <MediaView>
+                    <mediaPlayer>
+                        <MediaPlayer fx:id="music">
+                            <media>
+                                <Media source="@resources/endless_sound.mp3" />
+                            </media>
+                        </MediaPlayer>
+                    </mediaPlayer>
+                </MediaView>
+            <RadioButton fx:id="ball0" ellipsisString="" layoutX="370.0" layoutY="30.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="104.0" style="-fx-text-fill: white;">
+               <graphic>
+                  <ImageView fx:id="image0" accessibleRole="RADIO_BUTTON" fitHeight="70.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/yellow_ball.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <toggleGroup>
+                  <ToggleGroup fx:id="allBalls" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="ball1" ellipsisString="" layoutX="83.0" layoutY="200.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="104.0" style="-fx-text-fill: white;" toggleGroup="$allBalls">
+               <graphic>
+                  <ImageView fx:id="image1" accessibleRole="RADIO_BUTTON" fitHeight="70.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/purple_ball_1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </RadioButton>
+            <RadioButton fx:id="ball2" ellipsisString="" layoutX="304.0" layoutY="200.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="104.0" style="-fx-text-fill: white;" toggleGroup="$allBalls">
+               <graphic>
+                  <ImageView fx:id="image2" accessibleRole="RADIO_BUTTON" fitHeight="70.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/blue_ball_2.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </RadioButton>
+            <RadioButton fx:id="ball3" ellipsisString="" layoutX="83.0" layoutY="351.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="104.0" style="-fx-text-fill: white;" toggleGroup="$allBalls">
+               <graphic>
+                  <ImageView fx:id="image3" accessibleRole="RADIO_BUTTON" fitHeight="70.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/red_ball_3.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </RadioButton>
+            <RadioButton fx:id="ball4" ellipsisString="" layoutX="304.0" layoutY="351.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="104.0" style="-fx-text-fill: white;" toggleGroup="$allBalls">
+               <graphic>
+                  <ImageView fx:id="image4" accessibleRole="RADIO_BUTTON" fitHeight="70.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/yellow_ball_4.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </RadioButton>
+            <RadioButton fx:id="ball5" ellipsisString="" layoutX="83.0" layoutY="516.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="104.0" style="-fx-text-fill: white;" toggleGroup="$allBalls">
+               <graphic>
+                  <ImageView fx:id="image5" accessibleRole="RADIO_BUTTON" fitHeight="70.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/blue_ball_5.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </RadioButton>
+            <RadioButton fx:id="ball6" ellipsisString="" layoutX="304.0" layoutY="516.0" mnemonicParsing="false" prefHeight="98.0" prefWidth="104.0" style="-fx-text-fill: white;" toggleGroup="$allBalls">
+               <graphic>
+                  <ImageView fx:id="image6" accessibleRole="RADIO_BUTTON" fitHeight="70.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/red_ball_6.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </RadioButton>
+            <Label layoutX="369.0" layoutY="119.0" prefHeight="40.0" prefWidth="101.0" style="-fx-font-size: 24; -fx-text-fill: white;" text="DEFAULT" />
+            <Label fx:id="label1" layoutX="84.0" layoutY="290.0" prefHeight="40.0" prefWidth="101.0" style="-fx-font-size: 24; -fx-text-fill: white; -fx-alignment: center;" text="50 ☆" />
+            <Label fx:id="label2" layoutX="305.0" layoutY="298.0" prefHeight="40.0" prefWidth="101.0" style="-fx-font-size: 24; -fx-text-fill: white; -fx-alignment: center;" text="10 ☆" />
+            <Label fx:id="label4" layoutX="318.0" layoutY="449.0" prefHeight="40.0" prefWidth="101.0" style="-fx-font-size: 24; -fx-text-fill: white; -fx-alignment: center;" text="20 ☆" />
+            <Label fx:id="label5" layoutX="84.0" layoutY="614.0" prefHeight="40.0" prefWidth="101.0" style="-fx-font-size: 24; -fx-text-fill: white; -fx-alignment: center;" text="25 ☆" />
+            <Label fx:id="label6" layoutX="305.0" layoutY="614.0" prefHeight="40.0" prefWidth="101.0" style="-fx-font-size: 24; -fx-text-fill: white; -fx-alignment: center;" text="15 ☆" />
+            <ImageView fitHeight="78.0" fitWidth="256.0" layoutX="35.0" layoutY="30.0" pickOnBounds="true">
+               <image>
+                  <Image url="@resources/shop_text.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="doneButton" layoutX="301.0" layoutY="681.0" mnemonicParsing="false" onAction="#press_done" prefHeight="72.0" prefWidth="123.0" style="-fx-background-color: transparent;" text="Done">
+               <graphic>
+                  <ImageView fitHeight="53.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/done_text.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label fx:id="label" layoutX="21.0" layoutY="125.0" prefHeight="67.0" prefWidth="318.0" style="-fx-font-size: 28; -fx-text-fill: white;" text="NOT ENOUGH STARS :(" />
+            <Label fx:id="label3" layoutX="84.0" layoutY="449.0" prefHeight="40.0" prefWidth="101.0" style="-fx-font-size: 24; -fx-text-fill: white; -fx-alignment: center;" text="75 ☆" />
+            </children>
+        </AnchorPane>
+    </root>
+</Scene>
