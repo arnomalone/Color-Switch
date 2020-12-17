@@ -24,7 +24,7 @@ public class C_application {
     @FXML
     private javafx.scene.control.Button closeButton;
     @FXML
-    Button playButton, quitButton, creditsButton, scoreButton, shopButton;
+    Button playButton, quitButton, creditsButton, scoreButton, shopButton, helpButton;
     @FXML
     AnchorPane anchorPane;
     @FXML
@@ -89,6 +89,11 @@ public class C_application {
     public void press_shop(ActionEvent event) throws IOException {
         music.stop();
         Scene HomePage = FXMLLoader.load(getClass().getResource("shop.fxml"));
+        Main.gameStage.setScene(HomePage);
+    }
+    public void press_help(ActionEvent event) throws IOException {
+        music.stop();
+        Scene HomePage = FXMLLoader.load(getClass().getResource("help.fxml"));
         Main.gameStage.setScene(HomePage);
     }
     public void press_quit(ActionEvent event) throws IOException {

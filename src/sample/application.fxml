@@ -19,11 +19,6 @@
                   <Image url="@resources/background.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="178.0" fitWidth="242.0" layoutX="250.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@resources/cs_logo_text_dk.png" />
-               </image>
-            </ImageView>
             <Button fx:id="quitButton" alignment="CENTER" layoutX="134.0" layoutY="686.0" mnemonicParsing="false" onAction="#press_quit" prefHeight="82.0" prefWidth="121.0" style="-fx-background-color: transparent;" text="Quit" textAlignment="CENTER">
                <graphic>
                   <ImageView fitHeight="52.0" fitWidth="112.0" pickOnBounds="true">
@@ -98,6 +93,15 @@
                   <ImageView fx:id="shopImage" fitHeight="73.0" fitWidth="82.0" pickOnBounds="true">
                      <image>
                         <Image url="@resources/shop.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="helpButton" layoutX="240.0" layoutY="279.0" mnemonicParsing="false" onAction="#press_help" prefHeight="100.0" prefWidth="181.0" style="-fx-background-color: transparent;" text="Help">
+               <graphic>
+                  <ImageView fitHeight="178.0" fitWidth="242.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/cs_logo_text_dk.png" />
                      </image>
                   </ImageView>
                </graphic>

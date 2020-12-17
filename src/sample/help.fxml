@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.media.Media?>
+<?import javafx.scene.media.MediaPlayer?>
+<?import javafx.scene.media.MediaView?>
+
+<Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.C_help">
+    <root>
+        <AnchorPane fx:id="anchorPane" prefHeight="800.0" prefWidth="500.0">
+            <children>
+            <ImageView fitHeight="802.0" fitWidth="504.0" pickOnBounds="true">
+               <image>
+                  <Image url="@resources/help_menu.png" />
+               </image>
+            </ImageView>
+                <Button fx:id="backButton" layoutX="343.0" layoutY="251.0" mnemonicParsing="false" onAction="#press_back" prefHeight="72.0" prefWidth="123.0" style="-fx-background-color: transparent;" text="Back">
+                    <graphic>
+                        <ImageView fitHeight="53.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@resources/back_text.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <MediaView>
+                    <mediaPlayer>
+                        <MediaPlayer fx:id="music">
+                            <media>
+                                <Media source="@resources/endless_sound.mp3" />
+                            </media>
+                        </MediaPlayer>
+                    </mediaPlayer>
+                </MediaView>
+                <Button fx:id="doneButton" layoutX="180.0" layoutY="681.0" mnemonicParsing="false" onAction="#press_done" prefHeight="72.0" prefWidth="123.0" style="-fx-background-color: transparent;" text="Done">
+                    <graphic>
+                        <ImageView fitHeight="61.0" fitWidth="131.0" pickOnBounds="true">
+                            <image>
+                                <Image url="@resources/got_it_text.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </AnchorPane>
+    </root>
+</Scene>

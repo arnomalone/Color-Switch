@@ -247,7 +247,6 @@ public class C_play {
             colorChanger.setTranslateY(obstacle.getTranslateY()+300);
             colorChanger.setVisible(true);
             colorChanger.setHit(false);
-
             star.setTranslateY(obstacle.getTranslateY()+(obstacle.getHeight()/2)-(star.getRadius()/2));
             star.setVisible(true);
             star.hit=false;
