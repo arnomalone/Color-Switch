@@ -40,6 +40,8 @@ public class C_window {
             common.theList = me.getGameList();
             common.totalScore = me.getTotalScore();
             common.scoreList = me.getScoreList();
+            common.currBall = me.getCurrBall();
+            common.availableBalls = me.getShopList();
             inStream.close();
             fileIn.close();
         } catch (FileNotFoundException e){
@@ -48,6 +50,8 @@ public class C_window {
             common.theList = me.getGameList();
             common.scoreList = me.getScoreList();
             common.totalScore = me.getTotalScore();
+            common.currBall = me.getCurrBall();
+            common.availableBalls = me.getShopList();
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }

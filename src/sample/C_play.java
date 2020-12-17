@@ -63,7 +63,11 @@ public class C_play {
         else { obstacle3 = new ObstacleTriangle(common.currGame.getCurrColor3()); }
 
         lastColor = common.currGame.getLastColor();
-        ball = new ElementBall();
+        if(common.currBall == 0) ball = new Ball0();
+        if(common.currBall == 1) ball = new Ball1(); if(common.currBall == 2) ball = new Ball2();
+        if(common.currBall == 3) ball = new Ball3(); if(common.currBall == 4) ball = new Ball4();
+        if(common.currBall == 5) ball = new Ball5(); if(common.currBall == 6) ball = new Ball6();
+
         ball.setTranslateY(common.currGame.getY_ball());
 
         obstacle1.setTranslateY(common.currGame.getY1());

@@ -7,4 +7,6 @@ public class common {
     static Game currGame;
     static ArrayList<Game> theList;
     static ArrayList<ScoreBoard> scoreList;
+    static int currBall;
+    static ArrayList<ShopItems> availableBalls = new ArrayList<>();
 }
