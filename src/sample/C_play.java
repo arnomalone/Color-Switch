@@ -267,12 +267,6 @@ public class C_play {
             colorChanger.setHit(true);
             colorChanger.setVisible(false);
             ball.setColor(colorChanger.getNextColor());
-            int num2 = random.nextInt(4);
-            while(num2==lastColor){
-                num2 = random.nextInt(4);
-            }
-            lastColor = num2;
-            colorChanger.setNextColor(num2);
         }
     }
 
