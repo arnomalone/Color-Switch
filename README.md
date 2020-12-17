@@ -41,9 +41,11 @@ Made as a part of end-term project in Advanced Programming Course (CSE201) at II
 ## Screenshots from the game
 ![alt_text](https://github.com/arnomalone/Color-Switch/blob/stage-change/1.png)
 ![alt_text](https://github.com/arnomalone/Color-Switch/blob/stage-change/4.png)
+![alt_text](https://github.com/arnomalone/Color-Switch/blob/stage-change/3.png)
 ![alt_text](https://github.com/arnomalone/Color-Switch/blob/stage-change/8.png)
-![alt_text](https://github.com/arnomalone/Color-Switch/blob/stage-change/2.png)
 ![alt_text](https://github.com/arnomalone/Color-Switch/blob/stage-change/9.png)
+![alt_text](https://github.com/arnomalone/Color-Switch/blob/stage-change/2.png)
+![alt_text](https://github.com/arnomalone/Color-Switch/blob/stage-change/3.png)
 
 ## License
 ### GNU General Public License v3.0
