@@ -13,7 +13,7 @@
     <root>
         <AnchorPane fx:id="anchorPane" prefHeight="800.0" prefWidth="500.0">
             <children>
-            <ImageView fitHeight="799.0" fitWidth="502.0" layoutX="-2.0" pickOnBounds="true">
+            <ImageView fitHeight="802.0" fitWidth="504.0" pickOnBounds="true">
                <image>
                   <Image url="@resources/help_menu.png" />
                </image>

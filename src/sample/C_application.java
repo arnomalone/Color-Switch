@@ -42,7 +42,6 @@ public class C_application {
     public void initialize() throws FileNotFoundException {
         music.setOnEndOfMedia(() -> music.seek(Duration.ZERO));
         music.play();
-//        totalStars = common.totalScore;
         shopImage.setPreserveRatio(true);
         totalStarLabel.setText(Integer.toString(common.totalScore));
         starShape = new Rectangle(42, 45);
